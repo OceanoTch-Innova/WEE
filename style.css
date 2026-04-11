@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: #0a2540;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Navegación */
+nav {
+    background: #1e3a8a;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+/* Contenido */
+main {
+    padding: 20px;
+}
+
+section {
+    background: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background: #0a2540;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* RESPONSIVE (esto es clave nivel empresa) */
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
+button {
+    padding: 10px 15px;
+    background: #00c896;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
