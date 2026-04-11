@@ -2,52 +2,55 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
     <title>Desarrollo Web en Puerto Montt | Páginas Profesionales</title>
-
     <meta name="description" content="Creamos páginas web modernas en Puerto Montt. Aumenta tus clientes con una web rápida, optimizada y profesional.">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Mi Agencia Web</h1>
-    <p>Impulsamos tu negocio en internet</p>
+<header class="hero">
+    <div class="hero__content">
+        <p class="eyebrow">Agencia digital en Puerto Montt</p>
+        <h1>Mi Agencia Web</h1>
+        <p class="hero__subtitle">Diseñamos páginas profesionales que convierten visitas en clientes.</p>
+        <a class="hero__cta" href="#contacto">Hablemos de tu proyecto</a>
+    </div>
 </header>
 
-<nav>
-    <a href="#">Inicio</a>
-    <a href="#">Servicios</a>
-    <a href="#">Contacto</a>
+<nav class="top-nav">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
 </nav>
 
-<main>
-
-    <section>
+<main id="inicio" class="layout">
+    <section id="servicios" class="card">
         <h2>🚀 Servicios</h2>
-        <p>Desarrollo de páginas web modernas y optimizadas.</p>
+        <p>Desarrollo de sitios web rápidos, modernos y optimizados para buscadores.</p>
+        <ul>
+            <li>Landing pages orientadas a ventas</li>
+            <li>Web corporativa para marcas locales</li>
+            <li>Optimización técnica y velocidad</li>
+        </ul>
     </section>
 
-    <section>
+    <section class="card">
         <h2>💡 Sobre Nosotros</h2>
-        <p>Ayudamos a negocios a crecer digitalmente.</p>
+        <p>Somos un equipo creativo y técnico enfocado en hacer crecer negocios en internet con diseño atractivo y resultados medibles.</p>
     </section>
 
-    <section>
-    <h2>📞 Contacto</h2>
-    <p>Email: contacto@miempresa.com</p>
-    <button id="btnContacto">Enviar mensaje</button>
-</section>
-
+    <section id="contacto" class="card card--accent">
+        <h2>📞 Contacto</h2>
+        <p>Email: contacto@miempresa.com</p>
+        <button id="btnContacto">Enviar mensaje</button>
+    </section>
 </main>
 
 <footer>
     <p>© 2026 Mi Agencia Web</p>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>
