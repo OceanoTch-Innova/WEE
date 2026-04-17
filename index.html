@@ -1,53 +1,1726 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-
-    <title>Desarrollo Web en Puerto Montt | Páginas Profesionales</title>
-
-    <meta name="description" content="Creamos páginas web modernas en Puerto Montt. Aumenta tus clientes con una web rápida, optimizada y profesional.">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oceanotech Innova | Digital Twins para Acuicultura Inteligente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --navy:    #020a1a;
+      --deep:    #05122b;
+      --cyan:    #00e5ff;
+      --teal:    #00b4cc;
+      --lime:    #a8ff3e;
+      --white:   #f0f6ff;
+      --muted:   #7a9abf;
+      --glass:   rgba(0,229,255,0.07);
+      --border:  rgba(0,229,255,0.18);
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+ 
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+ 
+    /* ─── NOISE TEXTURE ──────────────────────────────────── */
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+ 
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6vw;
+      background: rgba(2,10,26,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.25rem; font-weight: 800;
+      letter-spacing: -.5px; color: var(--white);
+    }
+    .logo span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .85rem; font-weight: 500;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: .5px; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta {
+      background: var(--cyan); color: var(--navy);
+      font-family: var(--font-head); font-weight: 700;
+      font-size: .82rem; letter-spacing: .5px;
+      padding: 9px 22px; border-radius: 30px;
+      text-decoration: none; transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: #fff; transform: scale(1.04); }
+ 
+    /* ─── HERO ───────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 140px 6vw 80px;
+      position: relative;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,229,255,.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0,180,204,.07) 0%, transparent 60%),
+                  var(--navy);
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(0,229,255,.1);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-size: .78rem; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--cyan);
+      margin-bottom: 28px;
+      animation: fadeUp .8s ease both;
+    }
+    #hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -1.5px;
+      max-width: 820px;
+      animation: fadeUp .9s .1s ease both;
+    }
+    #hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--cyan), var(--lime));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      margin-top: 24px; max-width: 580px;
+      font-size: 1.05rem; line-height: 1.7;
+      color: var(--muted);
+      animation: fadeUp 1s .2s ease both;
+    }
+    .hero-btns {
+      margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 1s .3s ease both;
+    }
+    .btn-primary {
+      background: var(--cyan); color: var(--navy);
+      font-family: var(--font-head); font-weight: 700;
+      padding: 14px 34px; border-radius: 40px;
+      text-decoration: none; font-size: .95rem;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 24px rgba(0,229,255,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(0,229,255,.5); }
+    .btn-ghost {
+      border: 1px solid var(--border); color: var(--white);
+      font-family: var(--font-head); font-weight: 600;
+      padding: 14px 34px; border-radius: 40px;
+      text-decoration: none; font-size: .95rem;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: var(--cyan); background: var(--glass); }
+ 
+    /* hero stats row */
+    .hero-stats {
+      margin-top: 70px; display: flex; gap: 48px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 1s .45s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--font-head); font-size: 2rem; font-weight: 800;
+      color: var(--cyan);
+    }
+    .stat-label { font-size: .8rem; color: var(--muted); margin-top: 4px; letter-spacing: .5px; }
+ 
+    /* animated scan line */
+    #hero::after {
+      content: "";
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      bottom: 0; animation: scan 6s linear infinite;
+    }
+ 
+    /* ─── SECTION BASE ───────────────────────────────────── */
+    section { position: relative; padding: 100px 6vw; }
+    .section-label {
+      font-size: .75rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 14px; font-weight: 600;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -.5px; max-width: 680px;
+    }
+    .section-body {
+      margin-top: 18px; max-width: 600px;
+      font-size: 1rem; line-height: 1.75; color: var(--muted);
+    }
+ 
+    /* ─── PROBLEMA ───────────────────────────────────────── */
+    #problema { background: var(--navy); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px; margin-top: 56px;
+    }
+    .problem-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      transition: transform .3s;
+    }
+    .problem-card:hover { transform: translateY(-4px); }
+    .problem-icon { font-size: 2rem; margin-bottom: 14px; }
+    .problem-card h3 {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .problem-card p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+ 
+    /* ─── SOLUCIÓN / HOW ─────────────────────────────────── */
+    #solucion {
+      background: linear-gradient(180deg, var(--deep) 0%, var(--navy) 100%);
+    }
+    .how-steps {
+      margin-top: 60px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+    }
+    .how-step {
+      padding: 36px 28px;
+      border-right: 1px solid var(--border);
+      position: relative;
+      transition: background .3s;
+    }
+    .how-step:last-child { border-right: none; }
+    .how-step:hover { background: var(--glass); }
+    .step-num {
+      font-family: var(--font-head); font-size: 3rem; font-weight: 800;
+      color: rgba(0,229,255,.12); line-height: 1;
+      margin-bottom: 12px;
+    }
+    .how-step h3 {
+      font-family: var(--font-head); font-size: .95rem; font-weight: 700;
+      margin-bottom: 8px; color: var(--cyan);
+    }
+    .how-step p { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+ 
+    /* ─── TECNOLOGÍAS ────────────────────────────────────── */
+    #tecnologias { background: var(--navy); }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px; margin-top: 56px;
+    }
+    .tech-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 30px 24px;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      position: relative; overflow: hidden;
+    }
+    .tech-card::before {
+      content: "";
+      position: absolute; top: -60px; right: -60px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, rgba(0,229,255,.12), transparent 70%);
+      transition: opacity .3s;
+      opacity: 0;
+    }
+    .tech-card:hover, .tech-card.active {
+      transform: translateY(-6px);
+      box-shadow: 0 0 28px rgba(0,229,255,.2);
+      border-color: var(--cyan);
+    }
+    .tech-card:hover::before, .tech-card.active::before { opacity: 1; }
+    .tech-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .tech-card h3 {
+      font-family: var(--font-head); font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .tech-info {
+      font-size: .87rem; color: var(--muted); line-height: 1.65;
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, opacity .4s;
+      opacity: 0;
+    }
+    .tech-card.active .tech-info,
+    .tech-card:hover .tech-info {
+      max-height: 120px; opacity: 1;
+    }
+    .tech-badge {
+      display: inline-block; margin-top: 12px;
+      background: rgba(168,255,62,.1);
+      border: 1px solid rgba(168,255,62,.3);
+      border-radius: 20px; padding: 3px 12px;
+      font-size: .72rem; color: var(--lime); letter-spacing: .5px;
+      opacity: 0; transition: opacity .4s .1s;
+    }
+    .tech-card.active .tech-badge,
+    .tech-card:hover .tech-badge { opacity: 1; }
+ 
+    /* ─── BENEFICIOS ─────────────────────────────────────── */
+    #beneficios {
+      background: linear-gradient(180deg, var(--deep), var(--navy));
+    }
+    .benefits-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; margin-top: 56px;
+    }
+    .benefit-list { display: flex; flex-direction: column; gap: 20px; }
+    .benefit-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 20px; border-radius: 14px;
+      border: 1px solid transparent;
+      transition: border-color .3s, background .3s;
+    }
+    .benefit-item:hover {
+      border-color: var(--border); background: var(--glass);
+    }
+    .benefit-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(0,229,255,.1); border: 1px solid var(--border);
+      border-radius: 12px; display: grid; place-items: center; font-size: 1.2rem;
+    }
+    .benefit-item h4 {
+      font-family: var(--font-head); font-size: .95rem; font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .benefit-item p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    /* Visual side */
+    .benefits-visual {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 24px; padding: 40px 30px;
+      text-align: center;
+    }
+    .big-number {
+      font-family: var(--font-head); font-size: 5rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--cyan), var(--lime));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .big-label { font-size: .9rem; color: var(--muted); margin-top: 8px; }
+    .divider { height: 1px; background: var(--border); margin: 28px 0; }
+    .mini-stats { display: flex; justify-content: space-around; }
+    .mini-stat-num {
+      font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--cyan);
+    }
+    .mini-stat-label { font-size: .75rem; color: var(--muted); margin-top: 4px; }
+ 
+    /* ─── DIFERENCIADORES ────────────────────────────────── */
+    #diferenciadores { background: var(--navy); }
+    .diff-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 56px;
+    }
+    .diff-card {
+      border-radius: 20px; padding: 36px 28px;
+      background: var(--glass); border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      transition: transform .3s;
+    }
+    .diff-card:hover { transform: translateY(-4px); }
+    .diff-card.highlight {
+      background: linear-gradient(135deg, rgba(0,229,255,.12), rgba(168,255,62,.06));
+      border-color: var(--cyan);
+    }
+    .diff-num {
+      font-family: var(--font-head); font-size: 4rem; font-weight: 800;
+      color: rgba(0,229,255,.08); position: absolute; top: 16px; right: 20px;
+    }
+    .diff-card h3 {
+      font-family: var(--font-head); font-size: 1.15rem; font-weight: 800;
+      margin-bottom: 10px; line-height: 1.2;
+    }
+    .diff-card p { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+    .diff-tag {
+      display: inline-block; margin-top: 16px;
+      background: rgba(0,229,255,.1); border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 14px;
+      font-size: .72rem; color: var(--cyan); letter-spacing: .5px;
+    }
+ 
+    /* ─── CORFO / IMPACTO ────────────────────────────────── */
+    #impacto {
+      background: linear-gradient(135deg, var(--deep) 0%, #020e20 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .impact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+      margin-top: 56px;
+    }
+    .impact-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .impact-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      font-size: .92rem; line-height: 1.65;
+    }
+    .impact-list li::before {
+      content: "→"; color: var(--cyan); font-weight: 700; flex-shrink: 0;
+    }
+    .corfo-box {
+      background: linear-gradient(135deg, rgba(0,229,255,.08), rgba(168,255,62,.05));
+      border: 1px solid var(--cyan);
+      border-radius: 20px; padding: 36px 30px;
+    }
+    .corfo-box h3 {
+      font-family: var(--font-head); font-size: 1.4rem; font-weight: 800;
+      margin-bottom: 20px; color: var(--cyan);
+    }
+    .corfo-box p { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+    .corfo-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .corfo-tag {
+      background: rgba(0,229,255,.08); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: .75rem; color: var(--white); letter-spacing: .3px;
+    }
+ 
+    /* ─── RECOMENDACIONES ────────────────────────────────── */
+    #recomendaciones { background: var(--navy); }
+    .reco-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-top: 56px;
+    }
+    .reco-card {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      transition: border-color .3s;
+    }
+    .reco-card:hover { border-color: var(--cyan); }
+    .reco-number {
+      font-family: var(--font-head); font-size: .75rem; font-weight: 700;
+      color: var(--lime); letter-spacing: 2px; margin-bottom: 10px;
+    }
+    .reco-card h3 {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .reco-card p { font-size: .86rem; color: var(--muted); line-height: 1.65; }
+ 
+    /* ─── CTA / CONTACTO ─────────────────────────────────── */
+    #contacto {
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,229,255,.1) 0%, transparent 70%), var(--navy);
+      text-align: center; padding: 120px 6vw;
+    }
+    #contacto .section-title { max-width: 600px; margin: 0 auto; }
+    #contacto .section-body { margin: 20px auto 0; text-align: center; }
+    .contact-btns { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+ 
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 6vw;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer .logo { font-size: 1rem; }
+    footer p { font-size: .8rem; color: var(--muted); }
+    footer a { color: var(--cyan); text-decoration: none; }
+ 
+    /* ─── ANIMATIONS ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scan {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+ 
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .benefits-layout, .impact-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .how-step { border-right: none; border-bottom: 1px solid var(--border); }
+      .how-step:last-child { border-bottom: none; }
+    }
+ 
+    /* ═══════════════════════════════════════════════
+       PHOTO & IMAGE STYLES — SPACEX LEVEL
+    ═══════════════════════════════════════════════ */
+ 
+    /* ── HERO FULLSCREEN PHOTO ── */
+    #hero { padding: 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg-img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transform: scale(1.08); transition: transform 12s ease; }
+    #hero.loaded .hero-bg-img { transform: scale(1); }
+    .hero-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(2,10,26,.3) 0%,
+        rgba(2,10,26,.1) 30%,
+        rgba(2,10,26,.6) 65%,
+        rgba(2,10,26,.95) 100%
+      );
+    }
+    .hero-content-wrap {
+      position: relative; z-index: 2;
+      padding: 0 6vw 80px;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+    }
+    .hero-scroll-hint {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: .6;
+    }
+    .hero-scroll-hint span { font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .scroll-arrow {
+      width: 20px; height: 20px;
+      border-right: 1px solid var(--cyan); border-bottom: 1px solid var(--cyan);
+      transform: rotate(45deg);
+      animation: arrowBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes arrowBounce { 0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)} }
+ 
+    /* ── PHOTO BAND (problema) ── */
+    .photo-band {
+      position: relative; width: 100%; height: 420px; overflow: hidden;
+      margin-bottom: 60px;
+    }
+    .photo-band-img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; transition: transform .8s ease; }
+    .photo-band:hover .photo-band-img { transform: scale(1.03); }
+    .photo-band-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(2,10,26,.85) 0%, rgba(2,10,26,.4) 60%, transparent 100%);
+      display: flex; align-items: flex-end; padding: 40px 6vw;
+    }
+    .photo-band-label {
+      font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--cyan); display: block; margin-bottom: 12px;
+    }
+    .photo-band-text p {
+      font-family: var(--font-head); font-size: clamp(1.1rem,2.5vw,1.8rem);
+      font-weight: 700; line-height: 1.4; color: var(--white); max-width: 600px;
+    }
+ 
+    /* ── SPLIT PHOTO (solucion) ── */
+    .split-photo {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; margin-bottom: 60px; border-radius: 16px; overflow: hidden;
+    }
+    .split-photo-img-wrap { position: relative; overflow: hidden; min-height: 380px; }
+    .split-photo-img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+    .split-photo-img-wrap:hover .split-photo-img { transform: scale(1.05); }
+    .split-photo-badge {
+      position: absolute; bottom: 16px; left: 16px;
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(2,10,26,.8); backdrop-filter: blur(10px);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 6px 14px; font-size: .72rem; color: var(--cyan);
+    }
+    .spb-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 6px var(--lime); animation: ringPulse 1.4s ease-in-out infinite; }
+    .split-photo-text {
+      background: var(--deep); padding: 50px 44px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .split-photo-text .section-label { margin-bottom: 12px; }
+    .split-photo-text .section-title { margin-bottom: 20px; }
+ 
+    /* ── TECH CARD IMAGE ── */
+    .tech-card-img {
+      width: calc(100% + 40px); margin: -20px -20px 16px;
+      height: 160px; overflow: hidden; border-radius: 15px 15px 0 0;
+    }
+    .tech-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; filter: brightness(.75) saturate(.9); }
+    .tech-card:hover .tech-card-img img { transform: scale(1.06); filter: brightness(.9) saturate(1.1); }
+ 
+    /* ── FULL-BLEED PHOTO BAND ── */
+    .fullbleed-photo {
+      position: relative; height: 70vh; min-height: 480px;
+      overflow: hidden;
+    }
+    .fullbleed-img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+    .fullbleed-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(2,10,26,.3) 40%,
+        rgba(2,10,26,.88) 80%,
+        rgba(2,10,26,1) 100%
+      );
+      display: flex; align-items: flex-end; padding: 60px 6vw;
+    }
+    .fullbleed-content { max-width: 700px; }
+    .fullbleed-label { font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 16px; }
+    .fullbleed-h2 { font-family: var(--font-head); font-size: clamp(1.8rem,4vw,3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; margin-bottom: 16px; }
+    .fullbleed-p { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 520px; }
+ 
+    @media(max-width:768px) {
+      .split-photo { grid-template-columns: 1fr; }
+      .split-photo-text { padding: 32px 24px; }
+      .photo-band { height: 260px; }
+      .fullbleed-photo { height: 50vh; min-height: 320px; }
+    }
+    /* ════ END PHOTO STYLES ════ */
+  
+ 
+    /* ── BOTÓN TRIGGER ── */
+    .dt-trigger-wrap {
+      margin-top: 32px;
+      display: flex; justify-content: center;
+    }
+    .dt-trigger {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent;
+      border: 1px solid rgba(168,255,62,.4);
+      color: var(--lime);
+      font-family: var(--font-head); font-size: .78rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 12px 28px; border-radius: 4px;
+      cursor: pointer; transition: all .3s;
+      position: relative; overflow: hidden;
+    }
+    .dt-trigger::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(168,255,62,.06);
+      transform: translateX(-100%);
+      transition: transform .4s ease;
+    }
+    .dt-trigger:hover::before { transform: translateX(0); }
+    .dt-trigger:hover {
+      border-color: var(--lime);
+      box-shadow: 0 0 24px rgba(168,255,62,.25);
+    }
+    .dt-trigger .pulse-ring {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 8px var(--lime);
+      animation: ringPulse 1.4s ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(1.6); }
+    }
+ 
+    /* ── OVERLAY BACKDROP ── */
+    #dt-overlay {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(2,10,26,.0);
+      pointer-events: none;
+      transition: background .5s ease;
+    }
+    #dt-overlay.open {
+      background: rgba(2,10,26,.7);
+      pointer-events: auto;
+    }
+ 
+    /* ── PANEL PRINCIPAL ── */
+    #dt-panel {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 400;
+      height: 92vh;
+      background: linear-gradient(180deg, #020e20 0%, #000d1a 100%);
+      border-top: 2px solid var(--lime);
+      border-radius: 20px 20px 0 0;
+      transform: translateY(100%);
+      transition: transform .6s cubic-bezier(.16,1,.3,1);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    #dt-panel.open {
+      transform: translateY(0);
+    }
+ 
+    /* scanline inside panel */
+    #dt-panel::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(168,255,62,.012) 3px, rgba(168,255,62,.012) 4px
+      );
+      pointer-events: none;
+    }
+ 
+    /* ── PANEL HEADER ── */
+    .dt-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 32px;
+      border-bottom: 1px solid rgba(168,255,62,.15);
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .dt-header-left { display: flex; align-items: center; gap: 14px; }
+    .dt-logo {
+      font-family: var(--font-head); font-size: .85rem; font-weight: 800;
+      letter-spacing: 2px; color: var(--lime);
+    }
+    .dt-live-badge {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(168,255,62,.08);
+      border: 1px solid rgba(168,255,62,.25);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: .65rem; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--lime); font-family: var(--font-head);
+    }
+    .dt-close {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--muted);
+      font-size: 1.1rem; transition: all .2s;
+    }
+    .dt-close:hover { background: rgba(255,51,80,.15); border-color: #ff3350; color: #ff3350; }
+ 
+    /* ── TABS ── */
+    .dt-tabs {
+      display: flex; gap: 0;
+      border-bottom: 1px solid rgba(168,255,62,.12);
+      padding: 0 32px; flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+    .dt-tab {
+      padding: 12px 22px;
+      font-family: var(--font-head); font-size: .72rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--muted); cursor: pointer;
+      border-bottom: 2px solid transparent;
+      background: transparent; border-top: none; border-left: none; border-right: none;
+      transition: color .2s, border-color .2s;
+    }
+    .dt-tab.active { color: var(--lime); border-bottom-color: var(--lime); }
+    .dt-tab:hover:not(.active) { color: var(--white); }
+ 
+    /* ── PANEL BODY ── */
+    .dt-body {
+      flex: 1; overflow-y: auto; overflow-x: hidden;
+      padding: 32px; position: relative; z-index: 1;
+      scrollbar-width: thin; scrollbar-color: rgba(168,255,62,.3) transparent;
+    }
+    .dt-body::-webkit-scrollbar { width: 4px; }
+    .dt-body::-webkit-scrollbar-thumb { background: rgba(168,255,62,.3); border-radius: 2px; }
+ 
+    /* ── TAB CONTENT PANELS ── */
+    .dt-pane { display: none; }
+    .dt-pane.active { display: block; animation: dtFadeIn .4s ease; }
+    @keyframes dtFadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+ 
+    /* ── SIMULATION PANEL ── */
+    .sim-wrap {
+      display: grid; grid-template-columns: 1fr 360px;
+      gap: 28px; align-items: start;
+    }
+    .sim-screen {
+      background: #000810;
+      border: 1px solid rgba(168,255,62,.25);
+      border-radius: 12px; overflow: hidden;
+      position: relative; aspect-ratio: 16/9;
+    }
+    #dt-canvas { width: 100%; height: 100%; display: block; }
+    .sim-hud-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 16px;
+      background: linear-gradient(180deg, rgba(0,13,26,.95), transparent);
+    }
+    .hud-label { font-family: var(--font-head); font-size: .62rem; letter-spacing: 2px; color: var(--lime); }
+    .hud-fps { font-family: var(--font-head); font-size: .6rem; color: rgba(168,255,62,.5); }
+    /* corner brackets */
+    .sc { position: absolute; width: 14px; height: 14px; border-color: var(--lime); border-style: solid; }
+    .sc.tl { top:8px; left:8px; border-width:1px 0 0 1px; }
+    .sc.tr { top:8px; right:8px; border-width:1px 1px 0 0; }
+    .sc.bl { bottom:8px; left:8px; border-width:0 0 1px 1px; }
+    .sc.br { bottom:8px; right:8px; border-width:0 1px 1px 0; }
+    /* alert overlay inside canvas */
+    .sim-alert {
+      position: absolute; bottom: 12px; left: 12px; right: 12px;
+      background: rgba(255,51,80,.12);
+      border: 1px solid rgba(255,51,80,.5);
+      border-radius: 6px; padding: 8px 14px;
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-size: .65rem; color: #ff3350;
+      opacity: 0; transition: opacity .3s;
+      animation: alertBlink 1s ease-in-out infinite;
+    }
+    .sim-alert.show { opacity: 1; }
+    @keyframes alertBlink { 0%,100% { border-color: rgba(255,51,80,.4); } 50% { border-color: rgba(255,51,80,.9); } }
+    /* sensor strip */
+    .sensor-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+    .sr {
+      background: rgba(0,229,255,.04);
+      border: 1px solid rgba(0,229,255,.1);
+      border-radius: 8px; padding: 10px 12px;
+    }
+    .sr-name { font-size: .58rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .sr-val { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; }
+    .sr-bar { height: 2px; background: rgba(255,255,255,.08); border-radius: 1px; margin-top: 5px; overflow: hidden; }
+    .sr-fill { height: 100%; border-radius: 1px; transition: width 1.2s ease; }
+    /* controls panel */
+    .ctrl-wrap { display: flex; flex-direction: column; gap: 14px; }
+    .ctrl-block {
+      background: rgba(168,255,62,.03);
+      border: 1px solid rgba(168,255,62,.12);
+      border-radius: 10px; padding: 18px;
+    }
+    .ctrl-block h4 {
+      font-family: var(--font-head); font-size: .65rem; letter-spacing: 2px;
+      color: var(--lime); text-transform: uppercase; margin-bottom: 14px;
+    }
+    .cr { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .cr label { font-size: .7rem; color: var(--muted); width: 82px; flex-shrink: 0; }
+    .cr input[type=range] {
+      flex: 1; -webkit-appearance: none; height: 3px;
+      background: rgba(255,255,255,.1); border-radius: 2px; outline: none;
+    }
+    .cr input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 13px; height: 13px;
+      background: var(--lime); border-radius: 50%;
+      box-shadow: 0 0 8px rgba(168,255,62,.6); cursor: pointer;
+    }
+    .cr-val { font-family: var(--font-head); font-size: .68rem; color: var(--lime); min-width: 48px; text-align: right; }
+    .ev-btn {
+      width: 100%; padding: 9px; margin-bottom: 7px; cursor: pointer;
+      background: transparent; border: 1px solid rgba(168,255,62,.25);
+      color: var(--lime); font-family: var(--font-head); font-size: .62rem;
+      letter-spacing: 1.5px; text-transform: uppercase; border-radius: 6px;
+      transition: all .2s;
+    }
+    .ev-btn:hover { background: rgba(168,255,62,.08); border-color: var(--lime); }
+    .ev-btn.danger { border-color: rgba(255,51,80,.3); color: #ff3350; }
+    .ev-btn.danger:hover { background: rgba(255,51,80,.08); border-color: #ff3350; }
+    .ai-box {
+      background: rgba(168,255,62,.04); border: 1px solid rgba(168,255,62,.2);
+      border-radius: 8px; padding: 12px 14px;
+      font-size: .78rem; color: var(--muted); line-height: 1.6;
+      min-height: 52px; transition: all .3s;
+    }
+    .ai-box-label { font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lime); margin-bottom: 6px; }
+ 
+    /* ── MARKETING PANE ── */
+    .mkt-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 28px; }
+    .mkt-card {
+      background: rgba(168,255,62,.03); border: 1px solid rgba(168,255,62,.1);
+      border-radius: 10px; padding: 22px 18px; transition: border-color .3s;
+    }
+    .mkt-card:hover { border-color: rgba(168,255,62,.35); }
+    .mkt-n { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; color: rgba(168,255,62,.08); line-height: 1; margin-bottom: 10px; }
+    .mkt-card h3 { font-family: var(--font-head); font-size: .78rem; letter-spacing: 1px; color: var(--lime); text-transform: uppercase; margin-bottom: 8px; }
+    .mkt-card p { font-size: .83rem; color: var(--muted); line-height: 1.65; }
+    .mkt-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+    .mkt-tag {
+      background: rgba(168,255,62,.06); border: 1px solid rgba(168,255,62,.15);
+      border-radius: 3px; padding: 2px 9px;
+      font-size: .62rem; color: var(--lime); letter-spacing: .5px;
+    }
+    /* funnel */
+    .funnel { display: flex; flex-direction: column; gap: 5px; max-width: 560px; margin: 0 auto; }
+    .fn-row { display: flex; align-items: center; gap: 12px; }
+    .fn-bar-wrap { flex: 1; }
+    .fn-bar {
+      height: 32px; background: rgba(168,255,62,.07); border: 1px solid rgba(168,255,62,.15);
+      border-radius: 3px; display: flex; align-items: center; padding: 0 12px;
+      font-size: .72rem; color: var(--white); transition: background .3s;
+    }
+    .fn-row:hover .fn-bar { background: rgba(168,255,62,.13); }
+    .fn-n { font-family: var(--font-head); font-size: .85rem; color: var(--lime); min-width: 42px; text-align: right; }
+ 
+    /* ── CORFO PANE ── */
+    .corfo-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .cpitch {
+      background: rgba(168,255,62,.03); border: 1px solid rgba(168,255,62,.1);
+      border-radius: 10px; padding: 22px 18px; margin-bottom: 16px;
+    }
+    .cpitch h3 { font-family: var(--font-head); font-size: .75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--lime); margin-bottom: 12px; }
+    .cpitch ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .cpitch li { font-size: .85rem; color: var(--muted); display: flex; gap: 8px; line-height: 1.6; }
+    .cpitch li::before { content: '→'; color: var(--lime); flex-shrink: 0; font-family: var(--font-head); font-size: .7rem; }
+    .cscore {
+      background: linear-gradient(135deg, rgba(168,255,62,.08), rgba(0,229,255,.04));
+      border: 1px solid var(--lime); border-radius: 10px; padding: 28px;
+      text-align: center; margin-bottom: 16px;
+    }
+    .cscore-lbl { font-size: .65rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .cscore-num {
+      font-family: var(--font-head); font-size: 4.5rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--lime), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .cscore-sub { font-size: .75rem; color: var(--muted); margin-top: 6px; }
+    .ods-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; justify-content: center; }
+    .ods {
+      background: rgba(168,255,62,.06); border: 1px solid rgba(168,255,62,.2);
+      border-radius: 3px; padding: 4px 12px;
+      font-family: var(--font-head); font-size: .62rem; color: var(--lime); letter-spacing: .5px;
+    }
+    .cinst {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; background: rgba(168,255,62,.03);
+      border: 1px solid rgba(168,255,62,.1); border-radius: 7px;
+      margin-bottom: 8px; transition: border-color .2s;
+    }
+    .cinst:hover { border-color: rgba(168,255,62,.3); }
+    .cinst-name { font-family: var(--font-head); font-size: .68rem; color: var(--white); }
+    .cinst-fit { font-size: .62rem; }
+    .fit-hi { color: var(--lime); }
+    .fit-md { color: var(--orange, #ff9a3c); }
+ 
+    @media (max-width: 768px) {
+      .sim-wrap, .mkt-grid, .corfo-layout { grid-template-columns: 1fr; }
+      .dt-tabs { overflow-x: auto; }
+      .dt-body { padding: 20px; }
+      .dt-header { padding: 14px 20px; }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <h1>Mi Agencia Web</h1>
-    <p>Impulsamos tu negocio en internet</p>
-</header>
-
+ 
+<!-- ░░ NAV ░░ -->
 <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Servicios</a>
-    <a href="#">Contacto</a>
+  <div class="logo">Oceanotech<span>.</span>Innova</div>
+  <ul class="nav-links">
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#solucion">Solución</a></li>
+    <li><a href="#tecnologias">Tecnología</a></li>
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#impacto">Impacto</a></li>
+  </ul>
+  <a href="mailto:contacto@oceanotech.cl" class="nav-cta">Contactar</a>
 </nav>
-
-<main>
-
-    <section>
-        <h2>🚀 Servicios</h2>
-        <p>Desarrollo de páginas web modernas y optimizadas.</p>
-    </section>
-
-    <section>
-        <h2>💡 Sobre Nosotros</h2>
-        <p>Ayudamos a negocios a crecer digitalmente.</p>
-    </section>
-
-    <section>
-    <h2>📞 Contacto</h2>
-    <p>Email: contacto@miempresa.com</p>
-    <button id="btnContacto">Enviar mensaje</button>
+ 
+<!-- ░░ HERO ░░ -->
+<section id="hero">
+  <!-- Fullscreen background photo: aerial salmon farm fjord (Unsplash free) -->
+  <div class="hero-bg">
+    <img
+      src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80&auto=format&fit=crop"
+      alt="Centro acuícola aéreo — fjord"
+      class="hero-bg-img"
+      id="hero-parallax"
+    />
+    <div class="hero-bg-overlay"></div>
+  </div>
+  <div class="hero-content-wrap">
+    <div class="hero-tag">🐟 Startup Deeptech · Acuicultura · Chile</div>
+    <h1>La <em>acuicultura inteligente</em><br>ya es una realidad</h1>
+    <p class="hero-sub">
+      Oceanotech Innova crea réplicas digitales en tiempo real de centros acuícolas,
+      combinando <strong>Digital Twins</strong>, IA cuantificada, Big Data, automatización total
+      y ciberseguridad avanzada para transformar la industria salmonera y acuícola de Chile.
+    </p>
+    <div class="hero-btns">
+      <a href="#solucion" class="btn-primary">Ver la solución</a>
+      <a href="#impacto" class="btn-ghost">Caso CORFO</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Automatización de procesos</div></div>
+      <div class="stat"><div class="stat-num">RT</div><div class="stat-label">Monitoreo en tiempo real</div></div>
+      <div class="stat"><div class="stat-num">5X</div><div class="stat-label">Reducción de pérdidas estimada</div></div>
+      <div class="stat"><div class="stat-num">360°</div><div class="stat-label">Visibilidad del centro acuícola</div></div>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
 </section>
-
-</main>
-
+ 
+<!-- ░░ PROBLEMA ░░ -->
+<section id="problema">
+  <!-- SpaceX-style photo band above cards -->
+  <div class="photo-band reveal">
+    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1400&q=80&auto=format&fit=crop" alt="Centro salmonero aéreo Chile" class="photo-band-img"/>
+    <div class="photo-band-overlay">
+      <div class="photo-band-text">
+        <span class="photo-band-label">El problema</span>
+        <p>"Chile es el 2° productor mundial de salmón —<br>y aún gestiona sus jaulas con herramientas del siglo pasado."</p>
+      </div>
+    </div>
+  </div>
+  <p class="section-label reveal">El desafío</p>
+  <h2 class="section-title reveal">La acuicultura enfrenta pérdidas millonarias cada año</h2>
+  <p class="section-body reveal">
+    La industria acuícola chilena mueve miles de millones de dólares, pero sigue gestionando
+    variables críticas con herramientas tradicionales, generando ineficiencias operativas,
+    riesgos sanitarios y pérdidas evitables.
+  </p>
+  <div class="problem-grid">
+    <div class="problem-card reveal">
+      <div class="problem-icon">📉</div>
+      <h3>Pérdidas productivas</h3>
+      <p>Mortalidad masiva por eventos no detectados a tiempo: caídas de oxígeno, bloom de algas, cambios térmicos bruscos.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="problem-icon">🦠</div>
+      <h3>Brotes de enfermedades</h3>
+      <p>Patologías como ISA o Caligus se propagan antes de ser detectadas, generando pérdidas económicas y ambientales devastadoras.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="problem-icon">⚙️</div>
+      <h3>Operaciones manuales</h3>
+      <p>Procesos decisionales lentos, dependientes de personal y sin respaldo de datos históricos ni predicción.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="problem-icon">🔓</div>
+      <h3>Vulnerabilidad cibernética</h3>
+      <p>Infraestructura crítica expuesta a ciberataques sin protocolos de seguridad digital específicos para el sector.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="problem-icon">🌊</div>
+      <h3>Impacto ambiental</h3>
+      <p>Sobrealimentación, residuos no controlados y escapes de peces generan daño ambiental y riesgo regulatorio.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="problem-icon">📊</div>
+      <h3>Datos desconectados</h3>
+      <p>Sensores aislados, planillas Excel y reportes tardíos impiden una visión integrada y predictiva de la operación.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- ░░ SOLUCIÓN ░░ -->
+<section id="solucion">
+  <div class="split-photo reveal">
+    <div class="split-photo-img-wrap">
+      <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=900&q=80&auto=format&fit=crop" alt="Tecnología IoT sensores acuicultura" class="split-photo-img"/>
+      <div class="split-photo-badge">
+        <div class="spb-dot"></div>
+        Sistema activo · Tiempo real
+      </div>
+    </div>
+    <div class="split-photo-text">
+      <p class="section-label">Nuestra solución</p>
+      <h2 class="section-title">Un gemelo digital de tu centro acuícola,<br>en tiempo real</h2>
+      <p class="section-body">
+        Nuestra plataforma construye una réplica digital exacta de cada centro de cultivo,
+        integrando todos los datos operativos para predecir, automatizar y proteger la producción.
+      </p>
+    </div>
+  </div>
+  <div class="how-steps">
+    <div class="how-step reveal">
+      <div class="step-num">01</div>
+      <h3>Captura IoT</h3>
+      <p>Sensores instalados capturan oxígeno, temperatura, salinidad, pH y biomasa en tiempo real, sin interrupciones.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="step-num">02</div>
+      <h3>Digital Twin</h3>
+      <p>Los datos alimentan un modelo digital vivo del centro: un espejo exacto de la operación física, actualizado al instante.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="step-num">03</div>
+      <h3>IA Cuantificada</h3>
+      <p>Modelos de inteligencia artificial predicen eventos de riesgo con días de anticipación y cuantifican el impacto esperado.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="step-num">04</div>
+      <h3>Automatización</h3>
+      <p>Las alertas y respuestas operativas se ejecutan automáticamente: ajuste de alimentación, activación de equipos, notificaciones.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="step-num">05</div>
+      <h3>Ciberseguridad</h3>
+      <p>Toda la infraestructura está protegida por protocolos de seguridad avanzados diseñados para activos críticos industriales.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- ░░ TECNOLOGÍAS ░░ -->
+<section id="tecnologias">
+  <p class="section-label reveal">Stack tecnológico</p>
+  <h2 class="section-title reveal">5 pilares que hacen única nuestra plataforma</h2>
+  <p class="section-body reveal">Haz clic en cada tarjeta para explorar cómo cada tecnología contribuye a la solución.</p>
+  <div class="tech-grid">
+    <div class="tech-card reveal">
+      <div class="tech-card-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Digital twin 3D visualization"/></div>
+      <div class="tech-icon">🔮</div>
+      <h3>Digital Twins</h3>
+      <p class="tech-info">Réplicas digitales sincronizadas en tiempo real que permiten simular escenarios, predecir comportamientos y tomar decisiones antes de que ocurran eventos críticos.</p>
+      <span class="tech-badge">Core Technology</span>
+    </div>
+    <div class="tech-card reveal">
+      <div class="tech-card-img"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&auto=format&fit=crop" alt="Inteligencia artificial visualización"/></div>
+      <div class="tech-icon">🧠</div>
+      <h3>IA Cuantificada</h3>
+      <p class="tech-info">Modelos de Machine Learning e IA explicable que no solo predicen, sino que cuantifican la probabilidad e impacto económico de cada evento. Decisiones basadas en evidencia.</p>
+      <span class="tech-badge">Predictive Engine</span>
+    </div>
+    <div class="tech-card reveal">
+      <div class="tech-card-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&auto=format&fit=crop" alt="IoT sensores electrónicos"/></div>
+      <div class="tech-icon">📡</div>
+      <h3>IoT Industrial</h3>
+      <p class="tech-info">Red de sensores marinos de alta precisión con conectividad resiliente, diseñados para operar en entornos acuícolas hostiles con mínimo mantenimiento.</p>
+      <span class="tech-badge">Hardware Layer</span>
+    </div>
+    <div class="tech-card reveal">
+      <div class="tech-card-img"><img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=80&auto=format&fit=crop" alt="Big data blockchain technology"/></div>
+      <div class="tech-icon">💾</div>
+      <h3>Big Data</h3>
+      <p class="tech-info">Arquitectura de datos masivos que procesa millones de puntos por hora, generando historial acumulativo que mejora los modelos predictivos con cada ciclo productivo.</p>
+      <span class="tech-badge">Data Platform</span>
+    </div>
+    <div class="tech-card reveal">
+      <div class="tech-card-img"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80&auto=format&fit=crop" alt="Ciberseguridad código digital"/></div>
+      <div class="tech-icon">🔐</div>
+      <h3>Ciberseguridad</h3>
+      <p class="tech-info">Capa de seguridad de nivel industrial: cifrado end-to-end, autenticación multifactor, monitoreo de intrusiones y cumplimiento con estándares IEC 62443 para OT/IT.</p>
+      <span class="tech-badge">Security Layer</span>
+    </div>
+    <div class="tech-card reveal">
+      <div class="tech-card-img"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80&auto=format&fit=crop" alt="Automatización robótica"/></div>
+      <div class="tech-icon">⚡</div>
+      <h3>Automatización Total</h3>
+      <p class="tech-info">100% de los procesos operativos críticos pueden ser automatizados: alimentación, aireación, muestreo y respuesta a alertas, reduciendo la dependencia operacional humana.</p>
+      <span class="tech-badge">Full Automation</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- ░░ BENEFICIOS ░░ -->
+<section id="beneficios">
+  <p class="section-label reveal">Beneficios concretos</p>
+  <h2 class="section-title reveal">Resultados medibles desde el primer ciclo</h2>
+  <div class="benefits-layout">
+    <div class="benefit-list">
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">📉</div>
+        <div>
+          <h4>Reducción de pérdidas productivas</h4>
+          <p>Detección temprana de eventos críticos evita mortandades masivas y pérdidas económicas cuantificables desde el inicio de operación.</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">🌱</div>
+        <div>
+          <h4>Mayor sostenibilidad ambiental</h4>
+          <p>Optimización del alimento, control de residuos y monitoreo continuo del impacto ambiental para cumplir normativas y estándares ASC/BAP.</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">🔬</div>
+        <div>
+          <h4>Prevención de enfermedades</h4>
+          <p>Modelos predictivos detectan condiciones favorables para patologías días antes de que se manifiesten, permitiendo acción preventiva.</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">💡</div>
+        <div>
+          <h4>Decisiones basadas en datos</h4>
+          <p>Cada decisión operativa respaldada por datos históricos, predicciones y análisis comparativo entre centros de cultivo.</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">🚀</div>
+        <div>
+          <h4>Escalabilidad nacional e internacional</h4>
+          <p>Plataforma cloud-native que escala desde un centro piloto a toda una red acuícola sin cambios de arquitectura.</p>
+        </div>
+      </div>
+    </div>
+    <div class="benefits-visual reveal">
+      <div class="big-number">↓40%</div>
+      <p class="big-label">Reducción estimada de pérdidas operativas en el primer año</p>
+      <div class="divider"></div>
+      <div class="mini-stats">
+        <div class="mini-stat">
+          <div class="mini-stat-num">3x</div>
+          <p class="mini-stat-label">Más rápido en detectar anomalías</p>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-stat-num">98%</div>
+          <p class="mini-stat-label">Uptime de la plataforma</p>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-stat-num">72h</div>
+          <p class="mini-stat-label">Anticipación predictiva</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ░░ DIFERENCIADORES ░░ -->
+<section id="diferenciadores">
+  <p class="section-label reveal">¿Por qué nosotros?</p>
+  <h2 class="section-title reveal">No solo monitoreamos. Predecimos, automatizamos y protegemos.</h2>
+  <div class="diff-grid">
+    <div class="diff-card highlight reveal">
+      <div class="diff-num">01</div>
+      <h3>Más allá del monitoreo tradicional</h3>
+      <p>Las soluciones actuales alertan cuando el problema ya ocurrió. Oceanotech Innova predice el problema antes de que suceda, cuantificando su impacto y activando respuestas automáticas.</p>
+      <span class="diff-tag">Predictivo, no reactivo</span>
+    </div>
+    <div class="diff-card reveal">
+      <div class="diff-num">02</div>
+      <h3>IA cuantificada y explicable</h3>
+      <p>No usamos cajas negras. Nuestra IA explica cada predicción con evidencia cuantitativa, generando confianza en operadores y acreditación ante organismos regulatorios.</p>
+      <span class="diff-tag">Transparent AI</span>
+    </div>
+    <div class="diff-card reveal">
+      <div class="diff-num">03</div>
+      <h3>Ciberseguridad industrial nativa</h3>
+      <p>Primer sistema acuícola con ciberseguridad OT/IT integrada desde el diseño, no añadida como parche. Protege desde el sensor hasta la nube.</p>
+      <span class="diff-tag">Security-first</span>
+    </div>
+    <div class="diff-card reveal">
+      <div class="diff-num">04</div>
+      <h3>UX diseñada para operadores reales</h3>
+      <p>Interface intuitiva que no requiere formación técnica avanzada. Paneles claros, alertas accionables y reportes automatizados para equipos en campo.</p>
+      <span class="diff-tag">Fácil de usar</span>
+    </div>
+    <div class="diff-card reveal">
+      <div class="diff-num">05</div>
+      <h3>Ecosistema digital integrado</h3>
+      <p>Una sola plataforma conecta sensores IoT, gemelo digital, modelos de IA, automatización y ciberseguridad. Sin integraciones complejas ni silos de datos.</p>
+      <span class="diff-tag">Todo en uno</span>
+    </div>
+    <div class="diff-card reveal">
+      <div class="diff-num">06</div>
+      <h3>Escalable desde el primer día</h3>
+      <p>Arquitectura cloud-native que permite comenzar con un centro piloto y escalar a cientos de jaulas, múltiples centros y distintas especies sin fricción.</p>
+      <span class="diff-tag">Infinitely scalable</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- ░░ IMPACTO FULLBLEED PHOTO ░░ -->
+<div class="fullbleed-photo">
+  <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80&auto=format&fit=crop" alt="Paisaje fjord Patagonia Chile acuicultura" class="fullbleed-img"/>
+  <div class="fullbleed-overlay">
+    <div class="fullbleed-content">
+      <div class="fullbleed-label">🇨🇱 Hecho en Chile · Para el mundo</div>
+      <h2 class="fullbleed-h2">La Patagonia chilena<br>merece la mejor tecnología</h2>
+      <p class="fullbleed-p">Oceanotech Innova nació en Puerto Montt para proteger el ecosistema marino más valioso de Sudamérica — y llevarlo al futuro digital.</p>
+    </div>
+  </div>
+</div>
+ 
+<!-- ░░ IMPACTO / CORFO ░░ -->
+<section id="impacto">
+  <p class="section-label reveal">Impacto y postulación CORFO</p>
+  <h2 class="section-title reveal">Transformación tecnológica con impacto nacional</h2>
+  <div class="impact-grid">
+    <div>
+      <p class="section-body reveal" style="max-width:100%">
+        Oceanotech Innova no es solo un producto: es infraestructura tecnológica crítica
+        para la industria acuícola chilena, uno de los sectores exportadores más importantes del país.
+        Nuestra solución genera impacto directo en competitividad, sostenibilidad y soberanía digital.
+      </p>
+      <ul class="impact-list" style="margin-top:32px">
+        <li class="reveal">Fortalecimiento de la competitividad de la acuicultura chilena a nivel global.</li>
+        <li class="reveal">Reducción del impacto ambiental mediante gestión inteligente de recursos.</li>
+        <li class="reveal">Generación de empleos tecnológicos de alta especialización en regiones acuícolas.</li>
+        <li class="reveal">Transferencia tecnológica y capacitación de talento local en IA e IoT industrial.</li>
+        <li class="reveal">Potencial de exportación de la plataforma a mercados acuícolas internacionales (Noruega, Perú, Ecuador).</li>
+        <li class="reveal">Alineación con los objetivos de transformación digital e innovación productiva de CORFO.</li>
+        <li class="reveal">Contribución directa a los ODS 14 (Vida Submarina) y ODS 9 (Innovación e Infraestructura).</li>
+      </ul>
+    </div>
+    <div class="corfo-box reveal">
+      <h3>🏆 Alineación con instrumentos CORFO</h3>
+      <p>Oceanotech Innova es un proyecto elegible para múltiples líneas de financiamiento de CORFO, dado su carácter innovador, su potencial de impacto productivo y su enfoque en transformación digital de sectores estratégicos.</p>
+      <p>Nuestro modelo de negocio contempla una fase piloto validada, métricas de impacto cuantificables y un equipo multidisciplinario con capacidad de ejecución demostrada.</p>
+      <div class="corfo-tags">
+        <span class="corfo-tag">CORFO I+D</span>
+        <span class="corfo-tag">Startup Ciencia</span>
+        <span class="corfo-tag">Subsidio Innovación</span>
+        <span class="corfo-tag">Transformación Digital</span>
+        <span class="corfo-tag">Acuicultura Estratégica</span>
+        <span class="corfo-tag">Deeptech</span>
+        <span class="corfo-tag">Exportación Tecnológica</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ░░ RECOMENDACIONES ░░ -->
+<section id="recomendaciones">
+  <p class="section-label reveal">Roadmap recomendado</p>
+  <h2 class="section-title reveal">Lo que recomendamos mostrar en tu sitio web</h2>
+  <p class="section-body reveal">Estas son las secciones clave para posicionarte como una startup tecnológica sólida ante inversionistas, CORFO y potenciales clientes.</p>
+  <div class="reco-grid">
+    <div class="reco-card reveal">
+      <div class="reco-number">REC 01</div>
+      <h3>Agrega un demo interactivo</h3>
+      <p>Un simulador básico del Digital Twin (aunque sea visual) genera confianza inmediata. Muestra cómo se vería el dashboard de un centro real con datos ficticios.</p>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-number">REC 02</div>
+      <h3>Incluye el equipo fundador</h3>
+      <p>Las startups que muestran su equipo generan +70% más confianza con inversionistas y evaluadores CORFO. Fotografías reales, roles y credenciales.</p>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-number">REC 03</div>
+      <h3>Carta de intención o cliente piloto</h3>
+      <p>Si tienes alguna empresa acuícola interesada, mencionarla (con permiso) como "partner piloto" o mostrar una carta de intención es un diferenciador clave para CORFO.</p>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-number">REC 04</div>
+      <h3>Métricas de impacto proyectadas</h3>
+      <p>Define y muestra métricas específicas: % de reducción de mortalidad, ahorro estimado en alimentación, ROI esperado. Los números concretos son más persuasivos que los conceptos.</p>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-number">REC 05</div>
+      <h3>Sección de prensa y validaciones</h3>
+      <p>Menciones en medios, premios de innovación, participación en aceleradoras o programas como Start-Up Chile generan autoridad y credibilidad instantánea.</p>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-number">REC 06</div>
+      <h3>Optimización SEO y accesibilidad</h3>
+      <p>Agrega meta tags, Open Graph para redes sociales, etiquetas alt en imágenes y estructura semántica HTML5 correcta. Crucial para que te encuentren en búsquedas.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- ░░ CONTACTO ░░ -->
+<section id="contacto">
+  <p class="section-label reveal" style="text-align:center">¿Listo para innovar?</p>
+  <h2 class="section-title reveal" style="margin:0 auto; text-align:center">Transformemos juntos la acuicultura de Chile</h2>
+  <p class="section-body reveal" style="text-align:center">
+    ¿Eres una empresa acuícola, inversionista o evaluador CORFO? Conversemos sobre cómo
+    Oceanotech Innova puede generar valor real en tu operación o portfolio.
+  </p>
+  <div class="contact-btns reveal">
+    <a href="mailto:contacto@oceanotech.cl" class="btn-primary">Solicitar información</a>
+    <a href="mailto:contacto@oceanotech.cl?subject=Piloto Oceanotech" class="btn-ghost">Proponer piloto</a>
+  </div>
+  <div class="dt-trigger-wrap reveal" style="margin-top:48px">
+    <button class="dt-trigger" onclick="openDT()">
+      <span class="pulse-ring"></span>
+      🔬 &nbsp;Explorar la Experiencia Digital Twin · CORFO
+    </button>
+  </div>
+</section>
+ 
+<!-- ░░ FOOTER ░░ -->
 <footer>
-    <p>© 2026 Mi Agencia Web</p>
+  <div class="logo">Oceanotech<span>.</span>Innova</div>
+  <p>© 2025 Oceanotech Innova SpA · Puerto Montt, Chile</p>
+  <p><a href="mailto:contacto@oceanotech.cl">contacto@oceanotech.cl</a></p>
 </footer>
-<script src="script.js"></script>
+ 
+<!-- ═══════════════════════════════════════════════════
+     SECCIÓN OCULTA · DIGITAL TWIN EXPERIENCE PANEL
+═══════════════════════════════════════════════════ -->
+<div id="dt-overlay" onclick="closeDT()"></div>
+ 
+<div id="dt-panel" role="dialog" aria-label="Digital Twin Experience">
+ 
+  <!-- Header -->
+  <div class="dt-header">
+    <div class="dt-header-left">
+      <div class="dt-logo">DIGITAL TWIN EXPERIENCE</div>
+      <div class="dt-live-badge"><span class="pulse-ring" style="width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 8px var(--lime);animation:ringPulse 1.4s ease-in-out infinite"></span>SISTEMA ACTIVO</div>
+    </div>
+    <button class="dt-close" onclick="closeDT()" aria-label="Cerrar">✕</button>
+  </div>
+ 
+  <!-- Tabs -->
+  <div class="dt-tabs">
+    <button class="dt-tab active" onclick="dtTab('sim',this)">🔬 Simulación</button>
+    <button class="dt-tab" onclick="dtTab('mkt',this)">📈 Marketing</button>
+    <button class="dt-tab" onclick="dtTab('biz',this)">💼 Modelo de Negocio</button>
+    <button class="dt-tab" onclick="dtTab('corfo',this)">🏆 Pitch CORFO</button>
+  </div>
+ 
+  <!-- Body -->
+  <div class="dt-body">
+ 
+    <!-- ── TAB: SIMULACIÓN ── -->
+    <div class="dt-pane active" id="pane-sim">
+      <div class="sim-wrap">
+        <!-- Canvas -->
+        <div>
+          <div class="sim-screen">
+            <canvas id="dt-canvas"></canvas>
+            <div class="sim-hud-top">
+              <span class="hud-label">CENTRO CHILOÉ · JAULA #7 · DIGITAL TWIN ACTIVO</span>
+              <span class="hud-fps" id="dt-fps">60 FPS</span>
+            </div>
+            <div class="sc tl"></div><div class="sc tr"></div>
+            <div class="sc bl"></div><div class="sc br"></div>
+            <div class="sim-alert" id="dt-alert">⚠ ALERTA DETECTADA · IA RESPONDIENDO AUTOMÁTICAMENTE...</div>
+          </div>
+          <div class="sensor-strip">
+            <div class="sr"><div class="sr-name">Oxígeno</div><div class="sr-val" id="d-o2" style="color:var(--lime)">8.2 mg/L</div><div class="sr-bar"><div class="sr-fill" id="db-o2" style="width:82%;background:var(--lime)"></div></div></div>
+            <div class="sr"><div class="sr-name">Temperatura</div><div class="sr-val" id="d-temp" style="color:var(--cyan)">12.4 °C</div><div class="sr-bar"><div class="sr-fill" id="db-temp" style="width:62%;background:var(--cyan)"></div></div></div>
+            <div class="sr"><div class="sr-name">pH</div><div class="sr-val" id="d-ph" style="color:var(--cyan)">7.3</div><div class="sr-bar"><div class="sr-fill" id="db-ph" style="width:73%;background:#a18fff"></div></div></div>
+            <div class="sr"><div class="sr-name">Biomasa</div><div class="sr-val" id="d-bio" style="color:var(--lime)">22.1 t</div><div class="sr-bar"><div class="sr-fill" id="db-bio" style="width:55%;background:var(--teal)"></div></div></div>
+            <div class="sr"><div class="sr-name">Salinidad</div><div class="sr-val" id="d-sal" style="color:var(--lime)">32.8 PSU</div><div class="sr-bar"><div class="sr-fill" id="db-sal" style="width:70%;background:var(--lime)"></div></div></div>
+            <div class="sr"><div class="sr-name">Riesgo IA 72h</div><div class="sr-val" id="d-risk" style="color:var(--lime)">BAJO</div><div class="sr-bar"><div class="sr-fill" id="db-risk" style="width:15%;background:var(--lime)"></div></div></div>
+          </div>
+          <div id="dt-ai-box" style="margin-top:12px;display:none">
+            <div class="ai-box">
+              <div class="ai-box-label">// Respuesta Automática IA</div>
+              <div id="dt-ai-text" style="font-size:.82rem;color:var(--white);line-height:1.6"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <div class="ctrl-wrap">
+          <div class="ctrl-block">
+            <h4>// Variables Ambientales</h4>
+            <div class="cr"><label>Temperatura</label><input type="range" min="5" max="22" value="12" step="0.5" oninput="dtEnv('temp',this.value)"><span class="cr-val" id="cv-temp">12°C</span></div>
+            <div class="cr"><label>Oxígeno</label><input type="range" min="3" max="14" value="8" step="0.1" oninput="dtEnv('o2',this.value)"><span class="cr-val" id="cv-o2">8.0</span></div>
+            <div class="cr"><label>Salinidad</label><input type="range" min="20" max="40" value="33" oninput="dtEnv('sal',this.value)"><span class="cr-val" id="cv-sal">33 PSU</span></div>
+            <div class="cr"><label>Corriente</label><input type="range" min="0" max="100" value="30" oninput="dtEnv('curr',this.value)"><span class="cr-val" id="cv-curr">30%</span></div>
+          </div>
+          <div class="ctrl-block">
+            <h4>// Simular Eventos Críticos</h4>
+            <button class="ev-btn" onclick="dtEvent('bloom')">🌿 Bloom de algas</button>
+            <button class="ev-btn" onclick="dtEvent('storm')">🌪 Tormenta marina</button>
+            <button class="ev-btn danger" onclick="dtEvent('hypoxia')">💀 Hipoxia crítica</button>
+            <button class="ev-btn danger" onclick="dtEvent('pathogen')">🦠 Brote patógeno</button>
+            <button class="ev-btn" onclick="dtReset()" style="margin-top:4px;border-color:rgba(0,229,255,.3);color:var(--cyan)">↺ Reset simulación</button>
+          </div>
+          <div class="ctrl-block">
+            <h4>// Predicción IA · 72h</h4>
+            <div class="sensor-strip" style="grid-template-columns:1fr 1fr">
+              <div class="sr"><div class="sr-name">O₂ pred.</div><div class="sr-val" id="pred-o2" style="color:var(--cyan);font-size:.85rem">--</div></div>
+              <div class="sr"><div class="sr-name">Temp pred.</div><div class="sr-val" id="pred-temp" style="color:var(--cyan);font-size:.85rem">--</div></div>
+              <div class="sr"><div class="sr-name">Riesgo</div><div class="sr-val" id="pred-risk" style="color:var(--lime);font-size:.85rem">BAJO</div></div>
+              <div class="sr"><div class="sr-name">Alim. auto</div><div class="sr-val" style="color:var(--lime);font-size:.85rem">✓ ON</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ── TAB: MARKETING ── -->
+    <div class="dt-pane" id="pane-mkt">
+      <div class="mkt-grid">
+        <div class="mkt-card"><div class="mkt-n">01</div><h3>Clientes Objetivo</h3><p>Salmoneras medianas y grandes en Los Lagos, Aysén y Magallanes con más de 5 jaulas y producción anual &gt;500 t.</p><div class="mkt-tags"><span class="mkt-tag">Mowi</span><span class="mkt-tag">Cermaq</span><span class="mkt-tag">Blumar</span><span class="mkt-tag">+50 PYMES</span></div></div>
+        <div class="mkt-card"><div class="mkt-n">02</div><h3>Canal Go-To-Market</h3><p>Venta directa B2B con piloto gratuito 90 días. Luego SaaS mensual + hardware IoT en leasing. Alianzas con integradores del sector.</p><div class="mkt-tags"><span class="mkt-tag">Piloto gratis</span><span class="mkt-tag">SaaS + IoT</span><span class="mkt-tag">B2B directo</span></div></div>
+        <div class="mkt-card"><div class="mkt-n">03</div><h3>Propuesta de Valor</h3><p>ROI positivo en el primer ciclo. Reducción mínima garantizada del 25% en pérdidas. Único sistema que predice, automatiza y protege.</p><div class="mkt-tags"><span class="mkt-tag">ROI año 1</span><span class="mkt-tag">Garantía -25%</span><span class="mkt-tag">3-en-1</span></div></div>
+        <div class="mkt-card"><div class="mkt-n">04</div><h3>Contenido y PR</h3><p>Casos de éxito con métricas reales post-piloto. Presencia en Aqua Magazine, SalmonExpert y AquaForum Chile. White papers técnicos.</p><div class="mkt-tags"><span class="mkt-tag">Thought leadership</span><span class="mkt-tag">Casos reales</span></div></div>
+        <div class="mkt-card"><div class="mkt-n">05</div><h3>Expansión Global</h3><p>Fase 2: Noruega, Perú, Ecuador. Plataforma agnóstica a la especie. TAM global acuicultura tech: USD 2.3B al 2027.</p><div class="mkt-tags"><span class="mkt-tag">Noruega</span><span class="mkt-tag">Perú</span><span class="mkt-tag">Global</span></div></div>
+        <div class="mkt-card"><div class="mkt-n">06</div><h3>Alianzas Estratégicas</h3><p>UACh e IFOP para I+D. Proveedores IoT certificados. Integradores OT/IT industriales. Corredores de seguros acuícolas.</p><div class="mkt-tags"><span class="mkt-tag">UACh</span><span class="mkt-tag">IFOP</span><span class="mkt-tag">IoT Partners</span></div></div>
+      </div>
+      <!-- Funnel -->
+      <h3 style="font-family:var(--font-head);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--lime);margin:36px 0 20px;text-align:center">// EMBUDO DE CONVERSIÓN · AÑO 1</h3>
+      <div class="funnel">
+        <div class="fn-row"><div class="fn-bar-wrap" style="width:100%"><div class="fn-bar">Empresas acuícolas identificadas</div></div><div class="fn-n">120</div></div>
+        <div class="fn-row"><div class="fn-bar-wrap" style="width:83%"><div class="fn-bar">Contactos calificados</div></div><div class="fn-n">100</div></div>
+        <div class="fn-row"><div class="fn-bar-wrap" style="width:50%"><div class="fn-bar">Demos realizados</div></div><div class="fn-n">60</div></div>
+        <div class="fn-row"><div class="fn-bar-wrap" style="width:25%"><div class="fn-bar">Pilotos activos</div></div><div class="fn-n">30</div></div>
+        <div class="fn-row"><div class="fn-bar-wrap" style="width:13%"><div class="fn-bar" style="background:rgba(168,255,62,.12);border-color:rgba(168,255,62,.3);color:var(--lime)">Clientes pagantes año 1</div></div><div class="fn-n" style="color:var(--lime)">15</div></div>
+      </div>
+    </div>
+ 
+    <!-- ── TAB: MODELO DE NEGOCIO ── -->
+    <div class="dt-pane" id="pane-biz">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
+        <div class="cpitch" style="text-align:center"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--lime)">$890</div><div style="font-size:.7rem;color:var(--muted);margin-top:4px">USD/mes · Starter</div><div style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.6">Hasta 3 jaulas · 4 sensores IoT · Alertas básicas · Soporte 5×8</div></div>
+        <div class="cpitch" style="text-align:center;border-color:var(--lime)"><div style="font-size:.6rem;letter-spacing:2px;color:var(--lime);text-transform:uppercase;margin-bottom:6px">⭐ Más popular</div><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--lime)">$2.400</div><div style="font-size:.7rem;color:var(--muted);margin-top:4px">USD/mes · Professional</div><div style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.6">12 jaulas · Digital Twin completo · IA predictiva · Automatización · Ciberseguridad · 24×7</div></div>
+        <div class="cpitch" style="text-align:center"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--lime)">Custom</div><div style="font-size:.7rem;color:var(--muted);margin-top:4px">Enterprise · A medida</div><div style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.6">Centros ilimitados · Hardware incluido · IA custom · ERP/SCADA · SLA 99.9%</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+        <div class="cpitch"><div style="font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">ARR Proy. Y1</div><div style="font-family:var(--font-head);font-size:1.6rem;color:var(--lime)">$400K</div><div style="font-size:.72rem;color:var(--muted);margin-top:3px">USD · 15 clientes</div></div>
+        <div class="cpitch"><div style="font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">LTV / CAC</div><div style="font-family:var(--font-head);font-size:1.6rem;color:var(--lime)">26×</div><div style="font-size:.72rem;color:var(--muted);margin-top:3px">&gt;3× = excelente</div></div>
+        <div class="cpitch"><div style="font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Gross Margin</div><div style="font-family:var(--font-head);font-size:1.6rem;color:var(--lime)">72%</div><div style="font-size:.72rem;color:var(--muted);margin-top:3px">SaaS típico 65–80%</div></div>
+        <div class="cpitch"><div style="font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Payback CAC</div><div style="font-family:var(--font-head);font-size:1.6rem;color:var(--lime)">4.3m</div><div style="font-size:.72rem;color:var(--muted);margin-top:3px">Meses promedio</div></div>
+      </div>
+    </div>
+ 
+    <!-- ── TAB: CORFO ── -->
+    <div class="dt-pane" id="pane-corfo">
+      <div class="corfo-layout">
+        <div>
+          <div class="cpitch"><h3>El Problema que Resolvemos</h3><ul><li>Chile pierde +USD 800M/año por eventos acuícolas evitables con tecnología.</li><li>No existe plataforma nacional que integre Digital Twins, IA y ciberseguridad para acuicultura.</li><li>El 78% de centros opera con monitoreo manual o sistemas desconectados.</li><li>Somos el 2° productor mundial de salmón, pero rezagados tecnológicamente frente a Noruega.</li></ul></div>
+          <div class="cpitch"><h3>Impacto Nacional Proyectado</h3><ul><li>+150 empleos tecnológicos directos en regiones acuícolas en 3 años.</li><li>Ahorro sectorial proyectado USD 120M/año al llegar al 15% de adopción.</li><li>Primera exportación de software deeptech acuícola hecho en Chile.</li><li>Reducción 30% en uso de antibióticos y huella ambiental del sector.</li></ul></div>
+          <div class="cpitch"><h3>Instrumentos CORFO Aplicables</h3>
+            <div class="cinst"><span class="cinst-name">CORFO · Subsidio I+D Empresas</span><span class="cinst-fit fit-hi">ALTA AFINIDAD ✓</span></div>
+            <div class="cinst"><span class="cinst-name">Startup Ciencia · Fase 1</span><span class="cinst-fit fit-hi">ALTA AFINIDAD ✓</span></div>
+            <div class="cinst"><span class="cinst-name">Fondo Innovación Competitividad</span><span class="cinst-fit fit-hi">ALTA AFINIDAD ✓</span></div>
+            <div class="cinst"><span class="cinst-name">Programa Transforma Acuicultura</span><span class="cinst-fit fit-hi">ALTA AFINIDAD ✓</span></div>
+            <div class="cinst"><span class="cinst-name">CDTI · Cooperación Internacional</span><span class="cinst-fit fit-md">MEDIA AFINIDAD ~</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="cscore">
+            <div class="cscore-lbl">// Índice de Impacto CORFO</div>
+            <div class="cscore-num">94</div>
+            <div class="cscore-sub">/ 100 · Potencial de impacto productivo nacional</div>
+            <div class="ods-tags">
+              <span class="ods">ODS 9 · Innovación</span>
+              <span class="ods">ODS 14 · Vida Submarina</span>
+              <span class="ods">ODS 8 · Trabajo Decente</span>
+              <span class="ods">ODS 12 · Producción Sostenible</span>
+            </div>
+          </div>
+          <div class="cpitch"><h3>Por Qué Ahora</h3><ul><li>Nuevas regulaciones ambientales 2024 obligan a trazabilidad digital obligatoria.</li><li>Costos de hardware IoT bajaron 60% en 3 años: el momento económico es ahora.</li><li>Noruega invirtió USD 4B en digitalización acuícola. Chile puede ser el segundo.</li><li>La pandemia abrió el mercado a la adopción digital en el sector primario.</li></ul></div>
+          <div style="text-align:center;margin-top:20px">
+            <a href="mailto:contacto@oceanotech.cl?subject=Reunión CORFO - Oceanotech Innova" class="btn-primary" style="display:inline-block;text-decoration:none">Agendar reunión CORFO →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </div><!-- /dt-body -->
+</div><!-- /dt-panel -->
+ 
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+ 
+  // Tech cards toggle
+  const cards = document.querySelectorAll('.tech-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const isActive = card.classList.contains('active');
+      cards.forEach(c => c.classList.remove('active'));
+      if (!isActive) card.classList.add('active');
+    });
+  });
+ 
+  // Nav active highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cyan)' : '';
+    });
+    // Hero parallax
+    const p = document.getElementById('hero-parallax');
+    if (p && window.scrollY < window.innerHeight) {
+      p.style.transform = `scale(1.08) translateY(${window.scrollY * 0.22}px)`;
+    }
+  });
+ 
+  // Hero image loaded
+  const heroEl = document.getElementById('hero');
+  const heroImg = document.getElementById('hero-parallax');
+  if (heroImg) {
+    const markLoaded = () => heroEl && heroEl.classList.add('loaded');
+    heroImg.addEventListener('load', markLoaded);
+    if (heroImg.complete) markLoaded();
+  }
+ 
+  /* ═══════════════════════════════════════
+     DIGITAL TWIN HIDDEN PANEL
+  ═══════════════════════════════════════ */
+ 
+  function openDT() {
+    document.getElementById('dt-panel').classList.add('open');
+    document.getElementById('dt-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(initDTCanvas, 300);
+  }
+  function closeDT() {
+    document.getElementById('dt-panel').classList.remove('open');
+    document.getElementById('dt-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+    if (dtAnimId) { cancelAnimationFrame(dtAnimId); dtAnimId = null; }
+    if (sensorInterval) { clearInterval(sensorInterval); sensorInterval = null; }
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDT(); });
+ 
+  function dtTab(id, btn) {
+    document.querySelectorAll('.dt-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.dt-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('pane-' + id).classList.add('active');
+    btn.classList.add('active');
+    if (id === 'sim') setTimeout(initDTCanvas, 50);
+  }
+ 
+  /* Canvas simulation */
+  let dtAnimId = null, dtCtx = null, sensorInterval = null;
+  let dtState = { temp:12, o2:8, sal:33, curr:30, event:null, fish:[], bubbles:[], frame:0, fpsCount:0, fpsTimer:0 };
+ 
+  function initDTCanvas() {
+    const c = document.getElementById('dt-canvas');
+    if (!c || !c.offsetWidth) return;
+    if (dtAnimId) cancelAnimationFrame(dtAnimId);
+    c.width = c.offsetWidth; c.height = c.offsetHeight;
+    dtCtx = c.getContext('2d');
+    dtState.fish = Array.from({length:30}, () => ({
+      x: Math.random()*c.width, y: 40+Math.random()*(c.height-80),
+      vx: (Math.random()-.5)*1.3, vy: (Math.random()-.5)*.5,
+      len: 7+Math.random()*9, phase: Math.random()*Math.PI*2
+    }));
+    dtState.bubbles = Array.from({length:50}, () => ({
+      x: Math.random()*c.width, y: Math.random()*c.height,
+      r: .4+Math.random()*1.6, vy: -.15-Math.random()*.35, a: .2+Math.random()*.4
+    }));
+    dtAnimLoop(0);
+    startSensorFlicker();
+  }
+ 
+  function dtAnimLoop(ts) {
+    dtAnimId = requestAnimationFrame(dtAnimLoop);
+    const c = document.getElementById('dt-canvas');
+    if (!c || !dtCtx) return;
+    const W = c.width, H = c.height;
+    dtState.frame++;
+    dtState.fpsCount++;
+    if (ts - dtState.fpsTimer > 1000) {
+      const el = document.getElementById('dt-fps');
+      if (el) el.textContent = dtState.fpsCount + ' FPS';
+      dtState.fpsCount = 0; dtState.fpsTimer = ts;
+    }
+    // background
+    const bg = dtCtx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0,'#000e20'); bg.addColorStop(1,'#001830');
+    dtCtx.fillStyle = bg; dtCtx.fillRect(0,0,W,H);
+    // event tint
+    const tints = {bloom:'rgba(20,160,60,.22)',storm:'rgba(80,120,180,.28)',hypoxia:'rgba(200,30,30,.22)',pathogen:'rgba(160,0,180,.2)'};
+    if (dtState.event && tints[dtState.event]) { dtCtx.fillStyle = tints[dtState.event]; dtCtx.fillRect(0,0,W,H); }
+    // grid
+    dtCtx.strokeStyle='rgba(168,255,62,.04)'; dtCtx.lineWidth=1;
+    for(let x=0;x<W;x+=44){dtCtx.beginPath();dtCtx.moveTo(x,0);dtCtx.lineTo(x,H);dtCtx.stroke();}
+    for(let y=0;y<H;y+=44){dtCtx.beginPath();dtCtx.moveTo(0,y);dtCtx.lineTo(W,y);dtCtx.stroke();}
+    // light rays
+    for(let i=0;i<3;i++){
+      const rx=W*.15+i*W*.3;
+      const rg=dtCtx.createLinearGradient(rx,0,rx+30,H);
+      rg.addColorStop(0,'rgba(168,255,62,.05)'); rg.addColorStop(1,'rgba(168,255,62,0)');
+      dtCtx.fillStyle=rg; dtCtx.beginPath(); dtCtx.moveTo(rx,0); dtCtx.lineTo(rx+40,H); dtCtx.lineTo(rx-10,H); dtCtx.closePath(); dtCtx.fill();
+    }
+    // bubbles
+    dtState.bubbles.forEach(b => {
+      b.y+=b.vy; if(b.y<-5)b.y=H+5;
+      dtCtx.beginPath(); dtCtx.arc(b.x,b.y,b.r,0,Math.PI*2);
+      dtCtx.strokeStyle=`rgba(168,255,62,${b.a})`; dtCtx.lineWidth=.7; dtCtx.stroke();
+    });
+    // cage rings
+    const cx=W/2,cy=H/2,cR=Math.min(W,H)*.34;
+    dtCtx.beginPath(); dtCtx.ellipse(cx,cy,cR,cR*.34,0,0,Math.PI*2);
+    dtCtx.strokeStyle='rgba(168,255,62,.55)'; dtCtx.lineWidth=1.5; dtCtx.setLineDash([6,5]); dtCtx.stroke(); dtCtx.setLineDash([]);
+    for(let r=1;r<=3;r++){
+      dtCtx.beginPath(); dtCtx.ellipse(cx,cy+r*14,cR*(1-r*.07),cR*.28*(1-r*.05),0,0,Math.PI*2);
+      dtCtx.strokeStyle=`rgba(0,229,255,${.25-r*.06})`; dtCtx.lineWidth=.8; dtCtx.stroke();
+    }
+    for(let a=0;a<Math.PI*2;a+=Math.PI/8){
+      dtCtx.beginPath(); dtCtx.moveTo(cx+Math.cos(a)*cR, cy+Math.sin(a)*cR*.34);
+      dtCtx.lineTo(cx+Math.cos(a)*cR*.88, cy+Math.sin(a)*cR*.28+42);
+      dtCtx.strokeStyle='rgba(168,255,62,.15)'; dtCtx.lineWidth=.7; dtCtx.stroke();
+    }
+    // fish
+    dtState.fish.forEach(f => {
+      f.phase+=.045; f.x+=f.vx*(1+dtState.curr*.004); f.y+=f.vy+Math.sin(f.phase)*.25;
+      if(f.x<-20)f.x=W+20; if(f.x>W+20)f.x=-20;
+      if(f.y<30)f.vy=Math.abs(f.vy); if(f.y>H-30)f.vy=-Math.abs(f.vy);
+      const col = dtState.event==='hypoxia'?'rgba(255,100,100,.7)':dtState.event==='bloom'?'rgba(50,220,100,.8)':'rgba(168,255,62,.75)';
+      dtCtx.save(); dtCtx.translate(f.x,f.y); dtCtx.rotate(Math.atan2(f.vy,f.vx));
+      dtCtx.beginPath(); dtCtx.ellipse(0,0,f.len,f.len*.38,0,0,Math.PI*2);
+      dtCtx.fillStyle=col; dtCtx.shadowBlur=4; dtCtx.shadowColor=col; dtCtx.fill();
+      dtCtx.beginPath(); dtCtx.moveTo(-f.len,0); dtCtx.lineTo(-f.len-f.len*.5,-f.len*.3); dtCtx.lineTo(-f.len-f.len*.5,f.len*.3); dtCtx.closePath();
+      dtCtx.fill(); dtCtx.restore();
+    });
+    // scan line
+    const sweep = (dtState.frame*.8)%H;
+    const sg = dtCtx.createLinearGradient(0,sweep-30,0,sweep+30);
+    sg.addColorStop(0,'transparent'); sg.addColorStop(.5,'rgba(168,255,62,.1)'); sg.addColorStop(1,'transparent');
+    dtCtx.fillStyle=sg; dtCtx.fillRect(0,sweep-30,W,60);
+    // data nodes
+    const t2=dtState.frame*.02;
+    for(let i=0;i<6;i++){
+      const nx=cx+Math.cos(t2+i*Math.PI/3)*cR*1.2, ny=cy+Math.sin(t2+i*Math.PI/3)*cR*.4;
+      dtCtx.beginPath(); dtCtx.arc(nx,ny,3,0,Math.PI*2);
+      dtCtx.fillStyle='rgba(168,255,62,.6)'; dtCtx.shadowBlur=8; dtCtx.shadowColor='rgba(168,255,62,.8)'; dtCtx.fill();
+      dtCtx.beginPath(); dtCtx.moveTo(cx,cy); dtCtx.lineTo(nx,ny);
+      dtCtx.strokeStyle='rgba(168,255,62,.07)'; dtCtx.lineWidth=.7; dtCtx.setLineDash([3,6]); dtCtx.stroke(); dtCtx.setLineDash([]);
+    }
+  }
+ 
+  function startSensorFlicker() {
+    if (sensorInterval) clearInterval(sensorInterval);
+    sensorInterval = setInterval(() => {
+      const s = dtState;
+      const j=(b,d)=>Math.max(0,Math.min(100,b+(Math.random()-.5)*d));
+      const o2pct=j(s.o2/14*100,4), tpct=j((s.temp-5)/17*100,3), phpct=j(70,3), bpct=j(55,2), spct=j(s.sal/40*100,2);
+      const riskpct=s.event==='hypoxia'||s.event==='pathogen'?72:s.event==='bloom'?45:15;
+      const o2v=(3+o2pct/100*11).toFixed(1), tv=(5+tpct/100*17).toFixed(1), phv=(6.5+phpct/100*2).toFixed(1), bv=(18+bpct/100*10).toFixed(1), sv=(20+spct/100*20).toFixed(1);
+      setSR('d-o2',o2v+' mg/L',o2pct<40?'#ff3350':o2pct<60?'#ff9a3c':'var(--lime)');
+      setSR('d-temp',tv+' °C',tpct>80?'#ff3350':'var(--cyan)');
+      setSR('d-ph',phv,'var(--cyan)');
+      setSR('d-bio',bv+' t','var(--lime)');
+      setSR('d-sal',sv+' PSU','var(--lime)');
+      const rlabel=riskpct>60?'ALTO ⚠':riskpct>35?'MEDIO':'BAJO';
+      setSR('d-risk',rlabel,riskpct>60?'#ff3350':riskpct>35?'#ff9a3c':'var(--lime)');
+      setBar('db-o2',o2pct); setBar('db-temp',tpct); setBar('db-ph',phpct); setBar('db-bio',bpct); setBar('db-sal',spct); setBar('db-risk',riskpct);
+      setSR('pred-o2',(parseFloat(o2v)-.4).toFixed(1)+' ↓','var(--cyan)');
+      setSR('pred-temp',(parseFloat(tv)+.3).toFixed(1)+' ↑','var(--cyan)');
+      setSR('pred-risk',rlabel,riskpct>60?'#ff3350':'var(--lime)');
+    }, 2000);
+  }
+  function setSR(id,text,color){const el=document.getElementById(id);if(el){el.textContent=text;el.style.color=color;}}
+  function setBar(id,pct){const el=document.getElementById(id);if(el)el.style.width=Math.min(100,Math.max(0,pct))+'%';}
+ 
+  function dtEnv(key,val){
+    dtState[key]=parseFloat(val);
+    const labels={temp:val+'°C',o2:parseFloat(val).toFixed(1),sal:val+' PSU',curr:val+'%'};
+    const el=document.getElementById('cv-'+key);if(el)el.textContent=labels[key];
+    evalAlert();
+  }
+ 
+  const dtAI={
+    bloom:'Bloom de algas detectado. Activando sensores de turbidez. Reduciendo alimentación 40%. Notificando a operador. Ajuste de oxigenación iniciado.',
+    storm:'Tormenta marina detectada. Reforzando anclajes digitalmente. Monitoreando corrientes. Protocolo de seguridad estructural activado.',
+    hypoxia:'⚠ CRÍTICO: Hipoxia detectada. Activando aireadores de emergencia. Reduciendo densidad de peces. Alerta enviada a veterinario. Normalización estimada: 4h.',
+    pathogen:'⚠ ALERTA SANITARIA: Perfil patógeno elevado. Protocolo de aislamiento activado. Notificando a SERNAPesca. Iniciando muestreo acelerado.'
+  };
+ 
+  function dtEvent(ev){
+    dtState.event=ev;
+    const alert=document.getElementById('dt-alert'); if(alert)alert.classList.add('show');
+    const box=document.getElementById('dt-ai-box'); if(box)box.style.display='block';
+    const txt=document.getElementById('dt-ai-text'); if(!txt)return;
+    txt.textContent='';
+    const resp=dtAI[ev]||''; let i=0;
+    const ti=setInterval(()=>{ if(i<resp.length){txt.textContent+=resp[i];i++;}else clearInterval(ti); },22);
+    evalAlert();
+  }
+ 
+  function dtReset(){
+    dtState.event=null;
+    document.getElementById('dt-alert').classList.remove('show');
+    const box=document.getElementById('dt-ai-box');if(box)box.style.display='none';
+    evalAlert();
+  }
+ 
+  function evalAlert(){
+    const alert=document.getElementById('dt-alert');if(!alert)return;
+    if(dtState.event||dtState.o2<5||dtState.temp>19)alert.classList.add('show');
+    else alert.classList.remove('show');
+  }
+</script>
 </body>
 </html>
+ 

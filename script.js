@@ -1,10 +1,17 @@
-// Esperar a que cargue la página
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const boton = document.getElementById("btnContacto");
+    const cards = document.querySelectorAll(".tech-card");
 
-    boton.addEventListener("click", function() {
-        alert("Gracias por tu interés. Pronto nos pondremos en contacto contigo.");
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+
+            // cerrar otras
+            cards.forEach(c => c.classList.remove("active"));
+
+            // activar actual
+            card.classList.add("active");
+
+        });
     });
 
 });
