@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OceanoTech Innova | Ocean Software</title>
+    <meta
+      name="description"
+      content="Arquitectura web minimalista B2B con enrutamiento interno para OceanoTech Innova: digital twins, investigación, ciberseguridad cuántica e impacto marino."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="deep-bg" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#/inicio" data-route-link="inicio" aria-label="Ir a inicio">
+        <span class="logo-wrap" aria-hidden="true">
+          <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#7bf1f6" />
+                <stop offset="100%" stop-color="#2cc9d2" />
+              </linearGradient>
+              <filter id="soft-glow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="1.8" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <polygon points="55,9 94,31 94,79 55,101 16,79 16,31" fill="none" stroke="url(#g1)" stroke-width="5" filter="url(#soft-glow)" />
+            <polygon points="55,21 84,37 84,73 55,89 26,73 26,37" fill="none" stroke="url(#g1)" stroke-width="4" />
+            <path d="M38 54c6-6 12-6 18 0s12 6 18 0" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" />
+            <path d="M38 64c6-6 12-6 18 0s12 6 18 0" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>OceanoTech</strong>
+          <small>INNOVA</small>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Rutas principales">
+        <a href="#/inicio" data-route-link="inicio">Inicio</a>
+        <a href="#/plataforma" data-route-link="plataforma">Plataforma</a>
+        <a href="#/investigacion" data-route-link="investigacion">Investigación</a>
+        <a href="#/contacto" data-route-link="contacto">Contacto</a>
+      </nav>
+
+      <button class="menu-mobile" type="button" id="menuToggle" aria-expanded="false" aria-controls="mobilePanel">
+        Menú
+      </button>
+    </header>
+
+    <aside id="mobilePanel" class="mobile-panel" hidden>
+      <a href="#/inicio" data-route-link="inicio">Inicio</a>
+      <a href="#/plataforma" data-route-link="plataforma">Plataforma</a>
+      <a href="#/investigacion" data-route-link="investigacion">Investigación</a>
+      <a href="#/contacto" data-route-link="contacto">Contacto</a>
+    </aside>
+
+    <main class="shell" id="appShell">
+      <section class="route-view is-active" data-route="inicio" aria-labelledby="title-home">
+        <p class="tag">Arquitectura minimalista · fondo marino oscuro</p>
+        <h1 id="title-home">
+          Desarrollamos tecnología basada en datos y monitoreo en tiempo real para optimizar operaciones, anticipar
+          <span>riesgos y mejorar la gestión en sistemas marinos y acuícolas.</span>.
+        </h1>
+        <p>
+          visita nuestra plataforma y página de investigación para conocer más sobre nuestro enfoque innovador.
+        </p>
+        <div class="actions">
+          <a class="btn solid" href="#/investigacion" data-route-link="investigacion">Ir a investigación</a>
+          <a class="btn ghost" href="#/plataforma" data-route-link="plataforma">Ver plataforma</a>
+        </div>
+      </section>
+
+      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
+        <p class="tag"></Ruta:> Plataforma</p>
+    
+        <h2 id="title-platform">Monitoreo, análisis y decisión en un solo sistema.</h2>
+        <ul>
+          Una plataforma modular que integra datos en tiempo real, analítica avanzada y visualización inteligente para la gestión de sistemas oceánicos y acuícolas.
+
+Diseñada para escalar, adaptarse y operar en entornos complejos.
+        </ul>
+
+      </section>
+      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
+        <p class="tag"></Ruta:> Plataforma</p>
+    
+        <h2 id="title-platform">Cómo funciona</h2>
+        <ul>
+          Conectamos múltiples fuentes de datos operacionales y sistemas externos en un solo entorno.
+
+Procesamiento y analítica
+Transformamos datos en información accionable mediante analítica avanzada y modelos predictivos.
+
+Visualización y operación
+Interfaces intuitivas y entornos digitales para monitoreo, análisis y toma de decisiones.
+        </ul>
+
+      </section>
+      </section>
+      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
+        <p class="tag"></Ruta:> Plataforma</p>
+    
+        <h2 id="title-platform">Capacidades clave</h2>
+        <ul>
+          Monitoreo en tiempo real
+Visualización continua de variables críticas desde una única plataforma.
+
+Alertas inteligentes
+Detección automática de anomalías basada en reglas y modelos.
+
+Analítica predictiva
+Proyección de escenarios y apoyo a decisiones estratégicas.
+
+Arquitectura SaaS
+Plataforma cloud, escalable e integrable con distintos sistemas.
+        </ul>
+
+      </section>
+      </section>
+      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
+        <p class="tag"></Ruta:> Plataforma</p>
+    
+        <h2 id="title-platform">Inteligencia del sistema</h2>
+        <ul>
+         Software que aprende del entorno
+La plataforma analiza patrones, identifica riesgos y genera recomendaciones para mejorar la eficiencia operacional y reducir la incertidumbre.
+        </ul>
+
+      </section>
+
+      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
+        <p class="tag"><Ruta: /> Investigación</p>
+        <h2 id="title-research">Investigación aplicada para sistemas oceánicos complejos</h2>
+        <p>
+         Exploramos e integramos tecnologías avanzadas para desarrollar soluciones robustas, escalables y seguras en entornos marinos y acuícolas.
+
+Nuestro enfoque combina ciencia, ingeniería y software para transformar datos en conocimiento operativo.
+        </p>
+        <div class="actions">
+          <a class="btn ghost" href="#/inicio" data-route-link="inicio">Volver a inicio</a>
+          <a class="btn solid" href="#/contacto" data-route-link="contacto">Contactar equipo</a>
+        </div>
+      </section>
+      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
+        <p class="tag"><Ruta: /> Investigación</p>
+        <h2 id="title-research">Ciberseguridad</h2>
+        <p>
+       Protección de infraestructura crítica y sistemas conectados en entornos industriales y oceánicos.
+
+Diseñamos arquitecturas seguras, resilientes y preparadas para amenazas emergentes en ecosistemas IoT
+        </p>
+  
+      </section>
+      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
+        <p class="tag"><Ruta: /> Investigación</p>
+        <h2 id="title-research">Ciencia de Datos</h2>
+        <p>
+       Modelamiento y análisis de datos para comprender dinámicas complejas del entorno marino.
+
+Aplicamos analítica avanzada y modelos predictivos para anticipar eventos, optimizar procesos y mejorar la toma de decisiones
+        </p>
+  
+      </section>
+      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
+        <p class="tag"><Ruta:/>Investigación</p>
+        <h2 id="title-research">Digital Twins Avanzados</h2>
+        <p>
+       Representaciones digitales de sistemas físicos en tiempo real.
+
+Desarrollamos gemelos digitales que integran sensores, simulación y visualización para monitorear, analizar y optimizar operaciones de forma continua.
+        </p>
+  
+      </section>
+
+      <section class="route-view" data-route="contacto" aria-labelledby="title-contact" hidden>
+        <p class="tag"><Ruta: /> Contacto</p>
+        <h2 id="title-contact">Canales directos</h2>
+        <ul class="contact-list">
+          <li><a href="mailto:Igorvillota@protom.me">Igorvillota@protom.me</a></li>
+          <li>
+            <a href="https://www.instagram.com/igor.villota?igsh=MXF1aXNxYjVhdmdvbQ==" target="_blank" rel="noopener noreferrer">
+              Instagram CEO / cofounder / líder tecnológico
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/oceanotech.e?igsh=OTZuemU1bHg1b25i" target="_blank" rel="noopener noreferrer">
+              Instagram OceanoTech Innova
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 OceanoTech Innova · ciencias e Investigación tecnológica.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
