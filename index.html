@@ -1,220 +1,657 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OceanoTech Innova | Ocean Software</title>
-    <meta
-      name="description"
-      content="Arquitectura web minimalista B2B con enrutamiento interno para OceanoTech Innova: digital twins, investigación, ciberseguridad cuántica e impacto marino."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="deep-bg" aria-hidden="true"></div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <header class="topbar">
-      <a class="brand" href="#/inicio" data-route-link="inicio" aria-label="Ir a inicio">
-        <span class="logo-wrap" aria-hidden="true">
-          <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#7bf1f6" />
-                <stop offset="100%" stop-color="#2cc9d2" />
-              </linearGradient>
-              <filter id="soft-glow" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="1.8" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            <polygon points="55,9 94,31 94,79 55,101 16,79 16,31" fill="none" stroke="url(#g1)" stroke-width="5" filter="url(#soft-glow)" />
-            <polygon points="55,21 84,37 84,73 55,89 26,73 26,37" fill="none" stroke="url(#g1)" stroke-width="4" />
-            <path d="M38 54c6-6 12-6 18 0s12 6 18 0" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" />
-            <path d="M38 64c6-6 12-6 18 0s12 6 18 0" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" />
-          </svg>
-        </span>
-        <span class="brand-copy">
-          <strong>OceanoTech</strong>
-          <small>INNOVA</small>
-        </span>
-      </a>
+<!-- ============ SEO ============ -->
+<title>OceanoTech Innova | Gemelos Digitales e IA Industrial Predictiva</title>
+<meta name="description" content="OceanoTech Innova desarrolla plataformas de Gemelo Digital que integran IoT, Inteligencia Artificial y Analítica Predictiva para convertir datos operacionales en decisiones inteligentes. Empezamos en acuicultura, escalable a minería, energía, manufactura y logística.">
+<meta name="keywords" content="Digital Twin, Gemelos Digitales, Transformación Digital, Industria 4.0, IoT Industrial, Inteligencia Artificial Industrial, Analítica Predictiva, Big Data, Ciberseguridad OT, Software Industrial, Digitalización Industrial, Smart Industry, Predictive Maintenance, Industrial AI, Digital Manufacturing">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.oceanotech-innova.com/">
 
-      <nav class="menu" aria-label="Rutas principales">
-        <a href="#/inicio" data-route-link="inicio">Inicio</a>
-        <a href="#/plataforma" data-route-link="plataforma">Plataforma</a>
-        <a href="#/investigacion" data-route-link="investigacion">Investigación</a>
-        <a href="#/contacto" data-route-link="contacto">Contacto</a>
-        <a href="#/dashboard" data-route-link="dashboard">Dashboard</a>
-      </nav>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OceanoTech Innova">
+<meta property="og:title" content="OceanoTech Innova | Gemelos Digitales e IA Industrial Predictiva">
+<meta property="og:description" content="Convertimos datos operacionales en decisiones inteligentes con Gemelos Digitales, IA y Analítica Predictiva. Primera solución para acuicultura, arquitectura escalable a toda la industria.">
+<meta property="og:url" content="https://www.oceanotech-innova.com/">
+<meta property="og:image" content="https://www.oceanotech-innova.com/og-cover.jpg">
+<meta property="og:locale" content="es_LA">
 
-      <button class="menu-mobile" type="button" id="menuToggle" aria-expanded="false" aria-controls="mobilePanel">
-        Menú
-      </button>
-    </header>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OceanoTech Innova | Gemelos Digitales e IA Industrial Predictiva">
+<meta name="twitter:description" content="Plataformas de Digital Twin, IoT, IA y Analítica Predictiva para transformar operaciones industriales, desde la acuicultura hasta la Industria 4.0.">
+<meta name="twitter:image" content="https://www.oceanotech-innova.com/og-cover.jpg">
 
-    <aside id="mobilePanel" class="mobile-panel" hidden>
-      <a href="#/inicio" data-route-link="inicio">Inicio</a>
-      <a href="#/plataforma" data-route-link="plataforma">Plataforma</a>
-      <a href="#/investigacion" data-route-link="investigacion">Investigación</a>
-      <a href="#/contacto" data-route-link="contacto">Contacto</a>
-      <a href="#/dashboard" data-route-link="dashboard">Dashboard</a>
-    </aside>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "OceanoTech Innova",
+  "url": "https://www.oceanotech-innova.com/",
+  "logo": "https://www.oceanotech-innova.com/logo.png",
+  "description": "OceanoTech Innova desarrolla plataformas de Gemelo Digital que integran IoT, Inteligencia Artificial, Analítica Predictiva y Ciberseguridad Industrial para convertir datos operacionales en decisiones inteligentes.",
+  "sameAs": [
+    "https://www.linkedin.com/company/oceanotech-innova",
+    "https://x.com/oceanotech_innova",
+    "https://www.instagram.com/oceanotech.innova"
+  ],
+  "contactPoint": { "@type": "ContactPoint", "contactType": "ventas", "email": "contacto@oceanotech-innova.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "OceanoTech Innova — Plataforma de Gemelo Digital",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Plataforma de Digital Twin que integra datos IoT, Inteligencia Artificial y Analítica Predictiva para modelar operaciones industriales en tiempo real, comenzando por la biomasa acuícola.",
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "url": "https://www.oceanotech-innova.com/#contacto" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "¿Qué es un Gemelo Digital industrial?", "acceptedAnswer": { "@type": "Answer", "text": "Es una réplica digital de una operación física, alimentada con datos IoT en tiempo real, que permite simular escenarios y anticipar resultados antes de que ocurran en la operación real." } },
+    { "@type": "Question", "name": "¿Cómo se integra OceanoTech con mis sistemas actuales?", "acceptedAnswer": { "@type": "Answer", "text": "La plataforma se conecta a sensores IoT existentes y a sistemas de gestión operativa mediante APIs, sin necesidad de reemplazar la infraestructura que ya tienes." } },
+    { "@type": "Question", "name": "¿Qué industrias pueden usar la plataforma hoy?", "acceptedAnswer": { "@type": "Answer", "text": "Hoy está disponible para la industria acuícola. La arquitectura fue diseñada para escalar a minería, energía, manufactura, agroindustria, logística y ciudades inteligentes." } },
+    { "@type": "Question", "name": "¿Cuánto tiempo toma implementar OceanoTech?", "acceptedAnswer": { "@type": "Answer", "text": "El tiempo depende de la infraestructura IoT existente. En una reunión inicial evaluamos tu operación y definimos un plan de implementación por fases." } },
+    { "@type": "Question", "name": "¿Es segura la plataforma frente a riesgos de ciberseguridad industrial?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Incorporamos ciberseguridad industrial (OT) desde el diseño de la arquitectura, no como una capa añadida después." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.oceanotech-innova.com/" }] }
+</script>
 
-    <main class="shell" id="appShell">
-      <section class="route-view is-active" data-route="inicio" aria-labelledby="title-home">
-        <p class="tag">Arquitectura minimalista · fondo marino oscuro</p>
-        <h1 id="title-home">
-          Desarrollamos tecnología basada en datos y monitoreo en tiempo real para optimizar operaciones, anticipar
-          <span>riesgos y mejorar la gestión en sistemas marinos y acuícolas.</span>.
-        </h1>
-        <p>
-          visita nuestra plataforma y página de investigación para conocer más sobre nuestro enfoque innovador.
-        </p>
-        <div class="actions">
-          <a class="btn solid" href="#/investigacion" data-route-link="investigacion">Ir a investigación</a>
-          <a class="btn ghost" href="#/plataforma" data-route-link="plataforma">Ver plataforma</a>
+<link rel="icon" type="image/png" href="assets/imagenes/favicon.png/favicon.ico.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:       #16211F;
+    --ink-soft:  #4B5C59;
+    --muted:     #8B9C99;
+    --line:      #E4EAE8;
+    --line-2:    #EEF2F1;
+    --teal:      #0F8C82;
+    --teal-deep: #0B6A62;
+    --coral:     #C4674A;
+    --bg:        #FFFFFF;
+    --bg-alt:    #F8FAFA;
+    --surface:   #FFFFFF;
+
+    --display: 'IBM Plex Sans', sans-serif;
+    --body: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+
+    --maxw: 1140px;
+    --ease: cubic-bezier(.4,0,.2,1);
+  }
+
+  [data-theme="dark"]{
+    --ink:       #ECEFEE;
+    --ink-soft:  #B7C4C1;
+    --muted:     #77918D;
+    --line:      #263330;
+    --line-2:    #202B29;
+    --bg:        #121B19;
+    --bg-alt:    #16211F;
+    --surface:   #16211F;
+    --teal:      #3FBBAF;
+    --teal-deep: #2FA89C;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+    transition: background .35s ease, color .35s ease;
+  }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background: var(--teal); color: #fff; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible{
+    outline: 1.5px solid var(--teal); outline-offset: 3px;
+  }
+
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 40px; }
+  em{ font-style: normal; }
+
+  .reveal{ opacity:0; transition: opacity 1s var(--ease); }
+  .reveal.is-visible{ opacity:1; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1 !important; transition:none; } }
+
+  /* ================= NAV ================= */
+  header.nav{ border-bottom: 1px solid var(--line); position: sticky; top:0; z-index:50; background: var(--bg); transition: background .35s ease, border-color .35s ease; }
+  .nav-inner{ max-width: var(--maxw); margin:0 auto; padding: 24px 40px; display:flex; align-items:center; justify-content:space-between; }
+  .logo{ font-family: var(--display); font-size: 21px; font-style: italic; letter-spacing: 0.01em; }
+  .nav-links{ display:flex; align-items:center; gap: 40px; font-size: 13.5px; }
+  .nav-links a:not(.nav-cta){ color: var(--ink-soft); transition: color .15s ease; }
+  .nav-links a:not(.nav-cta):hover{ color: var(--ink); }
+  .nav-cta{ color: var(--ink) !important; border-bottom: 1px solid var(--ink); padding-bottom: 2px; transition: border-color .15s ease, color .15s ease; }
+  .nav-cta:hover{ color: var(--teal) !important; border-color: var(--teal); }
+
+  .theme-toggle{
+    background:none; border:none; cursor:pointer; padding:4px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--muted);
+    text-transform: uppercase; transition: color .15s ease;
+  }
+  .theme-toggle:hover{ color: var(--ink); }
+
+  /* ================= BUTTONS ================= */
+  .btn-primary{
+    display:inline-block; padding: 14px 26px; background: var(--ink); color: var(--bg);
+    font-size: 14.5px; font-weight:500; border:none; cursor:pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .btn-primary:hover{ background: var(--teal); }
+  .btn-line{
+    display:inline-flex; align-items:center; gap:8px; font-size: 14.5px; font-weight:500; color: var(--ink);
+    border-bottom: 1px solid var(--ink); padding-bottom: 3px; transition: color .15s ease, border-color .15s ease, gap .15s ease;
+  }
+  .btn-line:hover{ color: var(--teal); border-color: var(--teal); gap: 12px; }
+  .btn-line svg{ width:13px; height:13px; }
+
+  /* ================= HERO ================= */
+  .hero{ padding: 120px 0 80px; text-align:center; }
+  .eyebrow{
+    font-family: var(--mono); font-size: 12px; letter-spacing:.09em; text-transform:uppercase;
+    color: var(--muted); margin-bottom: 30px; display:block;
+  }
+  h1.headline{
+    font-family: var(--display); font-weight:400; font-style:normal;
+    font-size: clamp(42px, 6.4vw, 84px); line-height: 1.04; letter-spacing: -0.01em;
+    max-width: 920px; margin: 0 auto; color: var(--ink);
+  }
+  h1.headline em{ color: var(--teal); }
+  .sub{
+    margin: 30px auto 0; font-size: 18px; line-height:1.7; color: var(--ink-soft);
+    max-width: 490px;
+  }
+  .hero-ctas{ margin-top: 40px; display:flex; gap: 30px; justify-content:center; align-items:center; }
+
+  .hero-stats{
+    margin-top: 100px; display:flex; justify-content:center; gap: 0;
+    border-top: 1px solid var(--line); max-width: 720px; margin-left:auto; margin-right:auto;
+  }
+  .hstat{ flex:1; padding: 28px 20px 0; border-right: 1px solid var(--line); }
+  .hstat:last-child{ border-right:none; }
+  .hstat b{ font-family: var(--display); font-size: 34px; font-weight:400; display:block; }
+  .hstat span{ font-family: var(--mono); font-size:11px; color: var(--muted); letter-spacing:.03em; margin-top:8px; display:block; }
+
+  /* ---- signature: quiet horizon line ---- */
+  .horizon{ margin-top: 90px; }
+  .horizon svg{ width:100%; height:64px; display:block; }
+  .horizon-line{ stroke: var(--line); stroke-width:1; }
+  .horizon-dot{ fill: var(--teal); }
+
+  /* ================= SECTION SHELL ================= */
+  section{ padding: 110px 0; border-top: 1px solid var(--line); transition: border-color .35s ease; }
+  .hero + section{ border-top:none; }
+  .alt{ background: var(--bg-alt); }
+  .section-head{ max-width: 600px; margin-bottom: 64px; }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .kicker{ font-family: var(--mono); font-size:11.5px; letter-spacing:.08em; color: var(--teal); text-transform:uppercase; display:block; margin-bottom:20px; }
+  h2.section-title{ font-family: var(--display); font-weight:400; font-size: clamp(30px, 3.4vw, 44px); line-height:1.14; letter-spacing:-0.01em; }
+  .section-desc{ margin-top:18px; font-size:16px; color: var(--ink-soft); line-height:1.7; }
+
+  /* ================= SOBRE (lista, no cards) ================= */
+  .about-list{ display:grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); }
+  .about-item{ padding: 32px 26px 0 0; border-right: 1px solid var(--line); }
+  .about-item:last-child{ border-right:none; }
+  .about-item span{ font-family: var(--mono); font-size:11px; color: var(--muted); letter-spacing:.04em; text-transform:uppercase; }
+  .about-item h3{ font-family: var(--display); font-weight:400; font-style:italic; font-size:23px; margin: 12px 0 12px; }
+  .about-item p{ font-size:14.5px; color: var(--ink-soft); line-height:1.65; }
+
+  /* ================= PROBLEMA VS SOLUCION ================= */
+  .compare{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .compare-col
+  .compare-head{ font-family: var(--display); font-style:italic; font-weight:400; font-size:24px; margin-bottom:28px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .compare-list{ list-style:none; display:flex; flex-direction:column; }
+  .compare-list li{ font-size:15px; line-height:1.6; padding: 14px 0 14px 24px; position:relative; border-bottom: 1px solid var(--line-2); color: var(--ink-soft); }
+  .compare-list li:first-child{ padding-top:0; }
+  .problem-list li::before{ content:"–"; position:absolute; left:0; color: var(--coral); }
+  .solution-list li::before{ content:"+"; position:absolute; left:0; color: var(--teal); }
+
+  /* ================= COMO FUNCIONA ================= */
+  .flow{ display:grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .flow-step{ padding: 28px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .flow-num{ font-family: var(--mono); font-size:11.5px; color: var(--teal); }
+  .flow-step h4{ font-family: var(--display); font-weight:400; font-size: 21px; margin: 12px 0 8px; }
+  .flow-step p{ font-size: 13px; color: var(--muted); line-height:1.5; }
+
+  /* ================= TECNOLOGIAS ================= */
+  .tech-list{ display:grid; grid-template-columns: repeat(2,1fr); column-gap: 60px; }
+  .tech-item{ display:flex; justify-content:space-between; align-items:baseline; padding: 22px 0; border-bottom: 1px solid var(--line); gap: 24px; }
+  .tech-item h3{ font-family: var(--display); font-weight:400; font-size: 21px; white-space:nowrap; }
+  .tech-item p{ font-size: 13.5px; color: var(--muted); text-align:right; }
+
+  /* ================= BENEFICIOS ================= */
+  .benefits-list{ columns: 2; column-gap: 60px; }
+  .benefit{ break-inside: avoid; display:flex; align-items:baseline; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .benefit-mark{ font-family: var(--mono); font-size: 12px; color: var(--teal); flex-shrink:0; }
+  .benefit h3{ font-family: var(--body); font-weight:500; font-size: 15px; }
+
+  /* ================= SECTORES ================= */
+  .sector-row{ display:flex; align-items:baseline; justify-content:space-between; padding: 24px 0; border-bottom: 1px solid var(--line); gap: 24px; }
+  .sector-row:first-child{ padding-top:0; }
+  .sector-name{ font-family: var(--display); font-weight:400; font-size: 26px; flex-shrink:0; width: 240px; }
+  .sector-name em{ color: var(--teal); }
+  .sector-desc{ font-size: 14px; color: var(--muted); flex:1; }
+  .sector-tag{ font-family: var(--mono); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color: var(--muted); white-space:nowrap; }
+  .sector-tag.live{ color: var(--teal); }
+
+  /* ================= POR QUE ELEGIRNOS ================= */
+  .why-grid{ display:grid; grid-template-columns: repeat(3,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+  .why-item{ padding: 30px 26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .why-item span{ font-family: var(--mono); font-size:11px; color: var(--muted); }
+  .why-item h3{ font-family: var(--display); font-weight:400; font-style:italic; font-size:21px; margin: 10px 0 8px; }
+  .why-item p{ font-size:13.5px; color: var(--muted); line-height:1.55; }
+
+  .mid-cta{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    padding-top: 56px; margin-top: 56px; border-top: 1px solid var(--line);
+  }
+  .mid-cta h3{ font-family: var(--display); font-weight:400; font-style:italic; font-size: 26px; max-width:480px; }
+
+  /* ================= FAQ ================= */
+  .faq-list{ max-width: 760px; border-top: 1px solid var(--line); }
+  .faq-item{ border-bottom: 1px solid var(--line); }
+  .faq-item summary{
+    cursor:pointer; list-style:none; padding: 26px 4px; display:flex; justify-content:space-between; align-items:center;
+    font-family: var(--display); font-style:italic; font-weight:400; font-size:20px;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-mark{ font-family: var(--mono); font-size: 18px; color: var(--muted); flex-shrink:0; margin-left:20px; transition: transform .2s ease; }
+  details[open] .faq-mark{ transform: rotate(45deg); color: var(--teal); }
+  .faq-item p{ padding: 0 4px 26px; font-size:14.5px; color: var(--ink-soft); line-height:1.7; max-width: 620px; }
+
+  /* ================= CTA FINAL ================= */
+  .cta-final{ text-align:center; }
+  .cta-final h2{ font-family: var(--display); font-weight:400; font-size: clamp(32px,4.4vw,54px); max-width:700px; margin:0 auto; line-height:1.14; }
+  .cta-final h2 em{ color: var(--teal); }
+  .cta-final .section-desc{ margin-left:auto; margin-right:auto; text-align:center; max-width: 440px; }
+  .cta-final .hero-ctas{ margin-top:36px; }
+
+  /* ================= CONTACTO ================= */
+  .contact-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap:70px; }
+  .contact-info h2{ font-family: var(--display); font-weight:400; font-size: clamp(28px,3vw,38px); line-height:1.2; }
+  .contact-info p{ margin-top:18px; font-size:15.5px; color: var(--ink-soft); line-height:1.7; max-width:380px; }
+  .contact-detail{ margin-top:32px; display:flex; flex-direction:column; gap:12px; font-size:14.5px; }
+  .contact-detail a{ color: var(--teal); }
+  .social-row{ display:flex; gap: 22px; margin-top:34px; }
+  .social-row a{ font-family: var(--mono); font-size:12px; color: var(--muted); border-bottom: 1px solid transparent; transition: color .15s ease, border-color .15s ease; }
+  .social-row a:hover{ color: var(--ink); border-color: var(--ink); }
+
+  .form-fields{ display:flex; flex-direction:column; }
+  .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .field{ padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .field label{ font-family: var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color: var(--muted); display:block; margin-bottom:10px; }
+  .field input, .field textarea{
+    font-family: var(--body); font-size:16px; border:none; background:none; color: var(--ink); width:100%;
+    resize:none; padding:0;
+  }
+  .field input:focus, .field textarea:focus{ outline:none; }
+  .form-fields .btn-primary{ margin-top: 34px; align-self:flex-start; }
+  .form-note{ font-family: var(--mono); font-size:11.5px; color: var(--muted); margin-top:16px; }
+
+  footer{ padding: 40px 0; }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:13px; color: var(--muted); }
+  .footer-links{ display:flex; gap:24px; }
+  .footer-links a:hover{ color: var(--ink); }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 980px){
+    .wrap, .nav-inner{ padding-left:24px; padding-right:24px; }
+    .hero{ padding: 90px 0 60px; }
+    .about-list, .why-grid{ grid-template-columns: repeat(2,1fr); }
+    .about-item:nth-child(2){ border-right:none; }
+    .why-item:nth-child(3n){ border-right: 1px solid var(--line); }
+    .why-item:nth-child(2n){ border-right:none; }
+    .flow{ grid-template-columns: repeat(2,1fr); }
+    .compare{ grid-template-columns:1fr; gap: 40px; }
+    .tech-list{ grid-template-columns: 1fr; }
+    .contact-grid{ grid-template-columns:1fr; gap:50px; }
+    .nav-links a:not(.theme-toggle):not(.nav-cta){ display:none; }
+    .sector-name{ width: auto; }
+  }
+  @media (max-width: 640px){
+    .about-list, .why-grid, .flow{ grid-template-columns: 1fr; }
+    .about-item, .why-item, .flow-step{ border-right:none !important; }
+    .benefits-list{ columns: 1; }
+    .hero-stats{ flex-direction:column; }
+    .hstat{ border-right:none; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+    .hstat:last-child{ border-bottom:none; }
+    .form-row{ grid-template-columns: 1fr; }
+    .sector-row{ flex-direction:column; gap:8px; }
+    section{ padding: 76px 0; }
+    .hero-ctas{ flex-direction:column; gap:20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">OceanoTech Innova</div>
+    <nav class="nav-links">
+      <a href="#producto">Producto</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#sectores">Sectores</a>
+      <a href="#nosotros">Nosotros</a>
+      <button class="theme-toggle" id="themeToggle">Modo noche</button>
+      <a href="#contacto" class="nav-cta">Solicitar reunión</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Gemelos Digitales · IA · Analítica Predictiva</span>
+      <h1 class="headline">El futuro de tu operación,<br>visible <em>antes</em> de que ocurra.</h1>
+      <p class="sub">Convertimos datos operacionales en decisiones inteligentes. Empezamos por la acuicultura; la arquitectura está lista para minería, energía, manufactura y logística.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn-primary">Solicitar una reunión</a>
+        <a href="#producto" class="btn-line">Conocer la tecnología <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="hero-stats reveal">
+        <div class="hstat"><b>24/7</b><span>Monitoreo en tiempo real</span></div>
+        <div class="hstat"><b>1</b><span>Gemelo Digital por operación</span></div>
+        <div class="hstat"><b>6+</b><span>Sectores en la hoja de ruta</span></div>
+      </div>
+
+      <div class="horizon">
+        <svg viewBox="0 0 1200 64" preserveAspectRatio="none">
+          <line class="horizon-line" x1="0" y1="32" x2="1200" y2="32"></line>
+          <circle class="horizon-dot" cx="140" cy="32" r="2.5"></circle>
+          <circle class="horizon-dot" cx="480" cy="32" r="2.5"></circle>
+          <circle class="horizon-dot" cx="760" cy="32" r="2.5"></circle>
+          <circle class="horizon-dot" cx="1060" cy="32" r="2.5"></circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE ================= -->
+  <section id="nosotros">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Sobre OceanoTech</span>
+        <h2 class="section-title">Nacimos para que ninguna industria vuelva a operar a ciegas</h2>
+        <p class="section-desc">No vendemos únicamente software: creamos un ecosistema donde convergen Gemelos Digitales, IA, IoT industrial y Big Data.</p>
+      </div>
+      <div class="about-list reveal">
+        <div class="about-item"><span>Historia</span><h3>De dónde venimos</h3><p>Nacimos de la necesidad de transformar cómo la industria decide: de reportes históricos a modelos predictivos en tiempo real.</p></div>
+        <div class="about-item"><span>Misión</span><h3>Lo que hacemos</h3><p>Convertir datos operacionales en decisiones inteligentes, dondequiera que se genere valor industrial.</p></div>
+        <div class="about-item"><span>Visión</span><h3>Hacia dónde vamos</h3><p>Ser la infraestructura de Gemelos Digitales detrás de la transformación digital de la industria.</p></div>
+        <div class="about-item"><span>Qué nos mueve</span><h3>Nuestra convicción</h3><p>Ninguna operación debería reaccionar a lo que ya pasó, pudiendo anticiparlo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROBLEMA VS SOLUCION ================= -->
+  <section class="alt" id="producto">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">El cambio de paradigma</span>
+        <h2 class="section-title">De una operación reactiva a una predictiva</h2>
+        <p class="section-desc">Muchas industrias aún deciden con información fragmentada y procesos reactivos.</p>
+      </div>
+      <div class="compare reveal">
+        <div class="compare-col">
+          <div class="compare-head">Operación reactiva</div>
+          <ul class="compare-list problem-list">
+            <li>Pérdidas económicas por decisiones tardías</li>
+            <li>Baja productividad operativa</li>
+            <li>Uso ineficiente de recursos</li>
+            <li>Poca capacidad predictiva</li>
+            <li>Dificultad para anticipar riesgos</li>
+            <li>Baja transformación digital</li>
+          </ul>
         </div>
-      </section>
-
-      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
-        <p class="tag"></Ruta:> Plataforma</p>
-    
-        <h2 id="title-platform">Monitoreo, análisis y decisión en un solo sistema.</h2>
-        <ul>
-          Una plataforma modular que integra datos en tiempo real, analítica avanzada y visualización inteligente para la gestión de sistemas oceánicos y acuícolas.
-
-Diseñada para escalar, adaptarse y operar en entornos complejos.
-        </ul>
-
-      </section>
-      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
-        <p class="tag"></Ruta:> Plataforma</p>
-    
-        <h2 id="title-platform">Cómo funciona</h2>
-        <ul>
-          Conectamos múltiples fuentes de datos operacionales y sistemas externos en un solo entorno.
-
-Procesamiento y analítica
-Transformamos datos en información accionable mediante analítica avanzada y modelos predictivos.
-
-Visualización y operación
-Interfaces intuitivas y entornos digitales para monitoreo, análisis y toma de decisiones.
-        </ul>
-
-      </section>
-      </section>
-      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
-        <p class="tag"></Ruta:> Plataforma</p>
-    
-        <h2 id="title-platform">Capacidades clave</h2>
-        <ul>
-          Monitoreo en tiempo real
-Visualización continua de variables críticas desde una única plataforma.
-
-Alertas inteligentes
-Detección automática de anomalías basada en reglas y modelos.
-
-Analítica predictiva
-Proyección de escenarios y apoyo a decisiones estratégicas.
-
-Arquitectura SaaS
-Plataforma cloud, escalable e integrable con distintos sistemas.
-        </ul>
-
-      </section>
-      </section>
-      <section class="route-view" data-route="plataforma" aria-labelledby="title-platform" hidden>
-        <p class="tag"></Ruta:> Plataforma</p>
-    
-        <h2 id="title-platform">Inteligencia del sistema</h2>
-        <ul>
-         Software que aprende del entorno
-La plataforma analiza patrones, identifica riesgos y genera recomendaciones para mejorar la eficiencia operacional y reducir la incertidumbre.
-        </ul>
-
-      </section>
-
-      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
-        <p class="tag"><Ruta: /> Investigación</p>
-        <h2 id="title-research">Investigación aplicada para sistemas oceánicos complejos</h2>
-        <p>
-         Exploramos e integramos tecnologías avanzadas para desarrollar soluciones robustas, escalables y seguras en entornos marinos y acuícolas.
-
-Nuestro enfoque combina ciencia, ingeniería y software para transformar datos en conocimiento operativo.
-        </p>
-        <div class="actions">
-          <a class="btn ghost" href="#/inicio" data-route-link="inicio">Volver a inicio</a>
-          <a class="btn solid" href="#/contacto" data-route-link="contacto">Contactar equipo</a>
+        <div class="compare-col">
+          <div class="compare-head">Con OceanoTech</div>
+          <ul class="compare-list solution-list">
+            <li>Decisiones anticipadas con simulación predictiva</li>
+            <li>Mayor productividad con datos en tiempo real</li>
+            <li>Optimización activa de recursos</li>
+            <li>Modelos de IA que anticipan escenarios</li>
+            <li>Alertas tempranas ante riesgos operativos</li>
+            <li>Una operación verdaderamente digital</li>
+          </ul>
         </div>
-      </section>
-      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
-        <p class="tag"><Ruta: /> Investigación</p>
-        <h2 id="title-research">Ciberseguridad</h2>
-        <p>
-       Protección de infraestructura crítica y sistemas conectados en entornos industriales y oceánicos.
+      </div>
+    </div>
+  </section>
 
-Diseñamos arquitecturas seguras, resilientes y preparadas para amenazas emergentes en ecosistemas IoT
-        </p>
-  
-      </section>
-      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
-        <p class="tag"><Ruta: /> Investigación</p>
-        <h2 id="title-research">Ciencia de Datos</h2>
-        <p>
-       Modelamiento y análisis de datos para comprender dinámicas complejas del entorno marino.
+  <!-- ================= COMO FUNCIONA ================= -->
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Cómo funciona</span>
+        <h2 class="section-title">De un sensor físico a una decisión de negocio</h2>
+        <p class="section-desc">Un mismo flujo de datos recorre toda la plataforma.</p>
+      </div>
+      <div class="flow reveal">
+        <div class="flow-step"><span class="flow-num">01</span><h4>Sensores</h4><p>Captura física en la operación.</p></div>
+        <div class="flow-step"><span class="flow-num">02</span><h4>IoT</h4><p>Conectividad y transmisión.</p></div>
+        <div class="flow-step"><span class="flow-num">03</span><h4>Plataforma</h4><p>Ingesta y almacenamiento.</p></div>
+        <div class="flow-step"><span class="flow-num">04</span><h4>Gemelo Digital</h4><p>Réplica en tiempo real.</p></div>
+        <div class="flow-step"><span class="flow-num">05</span><h4>IA</h4><p>Modelado inteligente.</p></div>
+        <div class="flow-step"><span class="flow-num">06</span><h4>Predicciones</h4><p>Escenarios anticipados.</p></div>
+        <div class="flow-step"><span class="flow-num">07</span><h4>Decisiones</h4><p>Acción informada.</p></div>
+        <div class="flow-step"><span class="flow-num">08</span><h4>Resultados</h4><p>Impacto medible.</p></div>
+      </div>
+    </div>
+  </section>
 
-Aplicamos analítica avanzada y modelos predictivos para anticipar eventos, optimizar procesos y mejorar la toma de decisiones
-        </p>
-  
-      </section>
-      <section class="route-view" data-route="investigacion" aria-labelledby="title-research" hidden>
-        <p class="tag"><Ruta:/>Investigación</p>
-        <h2 id="title-research">Digital Twins Avanzados</h2>
-        <p>
-       Representaciones digitales de sistemas físicos en tiempo real.
+  <!-- ================= TECNOLOGIAS ================= -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Tecnología</span>
+        <h2 class="section-title">Un ecosistema, no un solo producto</h2>
+      </div>
+      <div class="tech-list reveal">
+        <div class="tech-item"><h3>Digital Twin</h3><p>Réplica digital de tu operación, viva y actualizada</p></div>
+        <div class="tech-item"><h3>IoT Industrial</h3><p>Sensores conectados capturando datos en campo</p></div>
+        <div class="tech-item"><h3>Inteligencia Artificial</h3><p>Modelos que interpretan patrones operativos</p></div>
+        <div class="tech-item"><h3>Machine Learning</h3><p>Modelos que mejoran con cada nueva corrida</p></div>
+        <div class="tech-item"><h3>Cloud Computing</h3><p>Infraestructura escalable sin fricción</p></div>
+        <div class="tech-item"><h3>Ciberseguridad OT</h3><p>Seguridad industrial desde la arquitectura</p></div>
+        <div class="tech-item"><h3>Big Data</h3><p>Volumen y variedad de datos, en un solo lugar</p></div>
+        <div class="tech-item"><h3>Analítica Predictiva</h3><p>Escenarios futuros desde datos reales</p></div>
+      </div>
+    </div>
+  </section>
 
-Desarrollamos gemelos digitales que integran sensores, simulación y visualización para monitorear, analizar y optimizar operaciones de forma continua.
-        </p>
-  
-      </section>
+  <!-- ================= BENEFICIOS ================= -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Beneficios</span>
+        <h2 class="section-title">Lo que cambia dentro de tu operación</h2>
+      </div>
+      <div class="benefits-list reveal">
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Reducir pérdidas</h3></div>
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Mayor productividad</h3></div>
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Menores costos</h3></div>
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Mayor sostenibilidad</h3></div>
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Monitoreo en tiempo real</h3></div>
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Predicción de eventos</h3></div>
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Automatización inteligente</h3></div>
+        <div class="benefit"><span class="benefit-mark">+</span><h3>Decisiones con confianza</h3></div>
+      </div>
+    </div>
+  </section>
 
-      <section class="route-view" data-route="contacto" aria-labelledby="title-contact" hidden>
-        <p class="tag"><Ruta: /> Contacto</p>
-        <h2 id="title-contact">Canales directos</h2>
-        <ul class="contact-list">
-          <li><a href="mailto:Igorvillota@protom.me">Igorvillota@protom.me</a></li>
-          <li>
-            <a href="https://www.instagram.com/igor.villota?igsh=MXF1aXNxYjVhdmdvbQ==" target="_blank" rel="noopener noreferrer">
-              Instagram CEO / cofounder / líder tecnológico
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/oceanotech.e?igsh=OTZuemU1bHg1b25i" target="_blank" rel="noopener noreferrer">
-              Instagram OceanoTech Innova
-            </a>
-          </li>
-        </ul>
-      </section>
-      <section class="route-view" data-route="dashboard" aria-labelledby="title-dashboard" hidden>
-        <p class="tag"><Ruta: /> Dashboard</p>
-        <h2 id="title-dashboard">Panel de Control</h2>
-        <p>
-        
-      </section>
+  <!-- ================= SECTORES ================= -->
+  <section class="alt" id="sectores">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Sectores</span>
+        <h2 class="section-title">Empezamos en el agua. Vamos hacia <em>toda</em> la industria</h2>
+        <p class="section-desc">La acuicultura es nuestra primera solución en producción; la arquitectura fue construida para escalar al resto.</p>
+      </div>
+      <div class="reveal">
+        <div class="sector-row">
+          <div class="sector-name">Acuicultura</div>
+          <div class="sector-desc">Modelado de biomasa en tiempo real, simulaciones predictivas y optimización de recursos en cultivo.</div>
+          <div class="sector-tag live">Disponible ahora</div>
+        </div>
+        <div class="sector-row"><div class="sector-name">Minería</div><div class="sector-desc">Monitoreo de activos y procesos críticos.</div><div class="sector-tag">Hoja de ruta</div></div>
+        <div class="sector-row"><div class="sector-name">Manufactura</div><div class="sector-desc">Gemelos digitales de línea de producción.</div><div class="sector-tag">Hoja de ruta</div></div>
+        <div class="sector-row"><div class="sector-name">Energía</div><div class="sector-desc">Predicción de demanda y mantenimiento.</div><div class="sector-tag">Hoja de ruta</div></div>
+        <div class="sector-row"><div class="sector-name">Agroindustria</div><div class="sector-desc">Optimización de recursos en campo.</div><div class="sector-tag">Hoja de ruta</div></div>
+        <div class="sector-row"><div class="sector-name">Logística</div><div class="sector-desc">Visibilidad end-to-end de la cadena.</div><div class="sector-tag">Hoja de ruta</div></div>
+        <div class="sector-row"><div class="sector-name">Smart Cities</div><div class="sector-desc">Infraestructura urbana instrumentada.</div><div class="sector-tag">Hoja de ruta</div></div>
+      </div>
+    </div>
+  </section>
 
-<footer class="footer">
-  <p>© 2026 OceanoTech Innova · Ciencia e investigación tecnológica.</p>
+  <!-- ================= POR QUE ELEGIRNOS ================= -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">¿Por qué OceanoTech?</span>
+        <h2 class="section-title">Tecnología propia, pensada para escalar</h2>
+      </div>
+      <div class="why-grid reveal">
+        <div class="why-item"><span>01</span><h3>Innovación</h3><p>Investigación aplicada directamente al producto.</p></div>
+        <div class="why-item"><span>02</span><h3>Escalabilidad</h3><p>Una arquitectura pensada para múltiples sectores.</p></div>
+        <div class="why-item"><span>03</span><h3>Seguridad</h3><p>Ciberseguridad OT integrada desde el diseño.</p></div>
+        <div class="why-item"><span>04</span><h3>Tecnología propia</h3><p>Plataforma desarrollada internamente, no licenciada.</p></div>
+        <div class="why-item"><span>05</span><h3>Análisis predictivo</h3><p>De datos históricos a escenarios futuros.</p></div>
+        <div class="why-item"><span>06</span><h3>Transformación digital</h3><p>Acompañamiento real, no solo software.</p></div>
+      </div>
+      <div class="mid-cta reveal">
+        <h3>¿Listo para ver el gemelo digital de tu operación?</h3>
+        <a href="#contacto" class="btn-primary">Solicitar una reunión</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Preguntas frecuentes</span>
+        <h2 class="section-title">Antes de conversar</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>¿Qué es un Gemelo Digital industrial?<span class="faq-mark">+</span></summary>
+          <p>Es una réplica digital de una operación física, alimentada con datos IoT en tiempo real, que permite simular escenarios y anticipar resultados antes de que ocurran en la operación real.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo se integra con mis sistemas actuales?<span class="faq-mark">+</span></summary>
+          <p>La plataforma se conecta a sensores IoT existentes y a sistemas de gestión operativa mediante APIs, sin necesidad de reemplazar la infraestructura que ya tienes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué industrias pueden usarla hoy?<span class="faq-mark">+</span></summary>
+          <p>Hoy está disponible para la industria acuícola. La arquitectura fue diseñada para escalar a minería, energía, manufactura, agroindustria, logística y ciudades inteligentes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto toma implementarla?<span class="faq-mark">+</span></summary>
+          <p>Depende de la infraestructura IoT existente. En la primera reunión evaluamos tu operación y definimos un plan de implementación por fases.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Es segura frente a riesgos de ciberseguridad industrial?<span class="faq-mark">+</span></summary>
+          <p>Sí. Incorporamos ciberseguridad industrial (OT) desde el diseño de la arquitectura, no como una capa añadida después.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section>
+    <div class="wrap cta-final reveal">
+      <span class="eyebrow">Hablemos de tu operación</span>
+      <h2>Empecemos a construir el <em>Gemelo Digital</em> de tu operación.</h2>
+      <p class="section-desc">Una conversación de 30 minutos para entender tu operación y mostrarte cómo se vería su gemelo digital.</p>
+      <div class="hero-ctas"><a href="#contacto" class="btn-primary">Solicitar una reunión</a></div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="kicker">Contacto</span>
+          <h2>Conversemos sobre tu operación</h2>
+          <p>Cuéntanos qué industria, qué tamaño de operación y qué te gustaría anticipar. Te respondemos en menos de 48 horas.</p>
+          <div class="contact-detail">
+            <div>Correo · <a href="mailto:contacto@oceanotech.site">contacto@oceanotech.site</a></div>
+            <div>Ubicación · Chile, operación Nacional</div>
+          </div>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/company/oceanotech-innova/?viewAsMember=true" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/OceanoTech" target="_blank">X</a>
+            <a href="https://www.instagram.com/oceanotech.e/" target="_blank">Instagram</a>
+          </div>
+        </div>
+
+        <form class="form-fields reveal" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Gracias — te contactaremos pronto.';">
+          <div class="form-row">
+            <div class="field"><label for="nombre">Nombre</label><input id="nombre" type="text" required></div>
+            <div class="field"><label for="empresa">Empresa</label><input id="empresa" type="text" required></div>
+          </div>
+          <div class="field"><label for="correo">Correo corporativo</label><input id="correo" type="email" required></div>
+          <div class="field"><label for="mensaje">Cuéntanos sobre tu operación</label><textarea id="mensaje" rows="3"></textarea></div>
+          <button type="submit" class="btn-primary">Solicitar una reunión</button>
+          <p class="form-note">Sin compromiso · Respuesta en menos de 48 horas</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 OceanoTech Innova. Transformación digital industrial, para todo el oceano.</span>
+    <div class="footer-links">
+      <a href="#">Política de privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  const toggle = document.getElementById('themeToggle');
+  toggle.addEventListener('click', () => {
+    const root = document.documentElement;
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    toggle.textContent = isDark ? 'Modo noche' : 'Modo día';
+  });
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+</script>
+
 </body>
 </html>

@@ -1,98 +1,67 @@
-const state = {
-  currentRoute: 'inicio',
-};
+(() => {
+  const routeViews = Array.from(document.querySelectorAll(".route-view"));
+  const mobileNavigation = document.getElementById("mobileNavigation");
+  const menuToggle = document.getElementById("menuToggle");
+  let hasLoadedRoute = false;
 
-const appShell = document.getElementById('appShell');
-const routeViews = Array.from(document.querySelectorAll('.route-view'));
-const routeLinks = Array.from(document.querySelectorAll('[data-route-link]'));
-const menuToggle = document.getElementById('menuToggle');
-const mobilePanel = document.getElementById('mobilePanel');
-
-function normalizeRoute(rawHash) {
-  const cleaned = String(rawHash || '')
-    .replace('#', '')
-    .replace('/', '')
-    .trim()
-    .toLowerCase();
-
-  if (!cleaned) {
-    return 'inicio';
+  function getRouteFromHash(hash) {
+    const route = String(hash || "").replace(/^#\/?/, "").split(/[?#]/)[0].trim().toLowerCase();
+    return routeViews.some((view) => view.dataset.route === route) ? route : "inicio";
   }
 
-  const exists = routeViews.some((view) => view.dataset.route === cleaned);
-  return exists ? cleaned : 'inicio';
-}
-
-function updateActiveLinks(route) {
-  routeLinks.forEach((link) => {
-    const isActive = link.dataset.routeLink === route;
-    link.classList.toggle('is-active', isActive);
-    link.setAttribute('aria-current', isActive ? 'page' : 'false');
-  });
-}
-
-function updateViews(route) {
-  routeViews.forEach((view) => {
-    const isActive = view.dataset.route === route;
-    view.classList.toggle('is-active', isActive);
-    view.hidden = !isActive;
-  });
-}
-
-function navigateTo(route, options = { replaceHash: true }) {
-  state.currentRoute = route;
-  updateViews(route);
-  updateActiveLinks(route);
-
-  if (options.replaceHash) {
-    window.location.hash = `/${route}`;
+  function closeMobileNavigation() {
+    if (!mobileNavigation || !menuToggle) return;
+    mobileNavigation.hidden = true;
+    menuToggle.setAttribute("aria-expanded", "false");
   }
 
-  if (appShell) {
-    appShell.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
+  function setActiveRoute(route, shouldScroll) {
+    const activeView = routeViews.find((view) => view.dataset.route === route);
+    if (!activeView) return;
 
-function handleHashRoute() {
-  const route = normalizeRoute(window.location.hash);
-  navigateTo(route, { replaceHash: false });
-}
+    routeViews.forEach((view) => {
+      const isActive = view === activeView;
+      view.hidden = !isActive;
+      view.classList.toggle("is-active", isActive);
+      view.setAttribute("aria-hidden", String(!isActive));
+    });
 
-function bindLinks() {
-  routeLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      const targetRoute = link.dataset.routeLink;
-      navigateTo(targetRoute, { replaceHash: true });
-
-      if (mobilePanel && !mobilePanel.hidden) {
-        mobilePanel.hidden = true;
-        if (menuToggle) {
-          menuToggle.setAttribute('aria-expanded', 'false');
-        }
+    document.title = activeView.dataset.title || "OceanoTech Innova";
+    document.querySelectorAll("a[href^='#/']").forEach((link) => {
+      if (getRouteFromHash(link.getAttribute("href")) === route) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
       }
     });
-  });
-}
 
-function bindMobileToggle() {
-  if (!menuToggle || !mobilePanel) {
-    return;
+    closeMobileNavigation();
+    if (shouldScroll) window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  menuToggle.addEventListener('click', () => {
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-    mobilePanel.hidden = isExpanded;
+  function synchronizeRoute() {
+    const route = getRouteFromHash(window.location.hash);
+    if (window.location.hash && window.location.hash !== "#/" + route) {
+      window.history.replaceState(null, "", "#/" + route);
+    }
+    setActiveRoute(route, hasLoadedRoute);
+    hasLoadedRoute = true;
+  }
+
+  if (menuToggle && mobileNavigation) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      mobileNavigation.hidden = isOpen;
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    if (event.target.closest("a[href^='#/']")) closeMobileNavigation();
   });
-}
-
-function initRouting() {
-  bindLinks();
-  bindMobileToggle();
-  handleHashRoute();
-
-  window.addEventListener('hashchange', handleHashRoute);
-}
-
-initRouting();
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMobileNavigation();
+  });
+  window.addEventListener("hashchange", synchronizeRoute);
+  synchronizeRoute();
+})();
